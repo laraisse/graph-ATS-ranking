@@ -1,20 +1,10 @@
-"""
-Visualization and Analysis Tools for Graph-Based ATS Ranker
-============================================================
-
-Provides tools to:
-1. Visualize the bipartite graph
-2. Create ranking comparison charts
-3. Analyze skill importance and coverage
-4. Generate candidate reports
-"""
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import networkx as nx
 import numpy as np
 import pandas as pd
-from typing import Dict, List
+from typing import Dict
 import seaborn as sns
 
 sns.set_style("whitegrid")
@@ -354,7 +344,7 @@ MISSING SKILLS (GAPS)
 
 if __name__ == "__main__":
     from graph_ats_ranker import GraphBasedATSRanker
-    
+
     # Example usage
     job_skills = {
         "Python": 0.9,
@@ -362,14 +352,14 @@ if __name__ == "__main__":
         "Leadership": 0.5,
         "Communication": 0.6
     }
-    
+
     candidates = {
         "Alice": {"Python": 0.8, "SQL": 0.6, "Leadership": 0.4, "Communication": 0.7},
         "Bob": {"Python": 0.5, "SQL": 0.9, "Leadership": 0.7},
         "Charlie": {"Python": 0.9, "SQL": 0.8},
         "Diana": {"Python": 0.7, "SQL": 0.7, "Leadership": 0.6, "Communication": 0.8}
     }
-    
+
     # Build and rank
     ranker = GraphBasedATSRanker()
     ranker.build_graph(job_skills, candidates)
@@ -378,18 +368,18 @@ if __name__ == "__main__":
     # Create visualizations
     print("Creating visualizations...")
     
-    visualize_graph(ranker, save_path='image/graph_structure.png')
+    visualize_graph(ranker, save_path='../image/graph_structure.png')
     print("✓ Graph structure saved")
     
-    plot_rankings(rankings, save_path='image/rankings.png')
+    plot_rankings(rankings, save_path='../image/rankings.png')
     print("✓ Rankings plot saved")
     
     plot_skill_coverage_heatmap(job_skills, candidates, rankings, 
-                               save_path='image/skill_coverage.png')
+                               save_path='../image/skill_coverage.png')
     print("✓ Skill coverage heatmap saved")
     
     fig, comp = compare_ranking_methods(job_skills, candidates,
-                                       save_path='image/comparison.png')
+                                       save_path='../image/comparison.png')
     print("✓ Method comparison saved")
     
     # Generate report

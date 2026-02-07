@@ -6,8 +6,7 @@ Core Principle:
 """
 
 import networkx as nx
-import numpy as np
-from typing import Dict, List, Tuple, Optional
+from typing import Dict
 import pandas as pd
 
 
@@ -201,7 +200,6 @@ class GraphBasedATSRanker:
             raise ValueError("Must call compute_rankings() first")
         
         cand_node = f"{self.candidate_prefix}{candidate_id}"
-        
         if cand_node not in self.graph:
             raise ValueError(f"Candidate {candidate_id} not found in graph")
         
@@ -295,7 +293,7 @@ def rank_candidates(
 ) -> pd.DataFrame:
     """
     One-shot function to rank candidates.
-    
+
     Parameters:
     -----------
     job_skills : Dict[str, float]
@@ -306,7 +304,7 @@ def rank_candidates(
         PageRank damping factor
     normalize : bool
         Normalize edge weights
-        
+
     Returns:
     --------
     pd.DataFrame with rankings
@@ -315,90 +313,3 @@ def rank_candidates(
     ranker.build_graph(job_skills, candidates)
     return ranker.compute_rankings()
 
-
-def explain_candidate(
-    job_skills: Dict[str, float],
-    candidates: Dict[str, Dict[str, float]],
-    candidate_id: str,
-    top_k_skills: int = 5
-) -> Dict:
-    """
-    One-shot function to explain a candidate's ranking.
-    """
-    ranker = GraphBasedATSRanker()
-    ranker.build_graph(job_skills, candidates)
-    ranker.compute_rankings()
-    return ranker.explain_ranking(candidate_id, top_k_skills)
-
-
-# ============================================================================
-# EXAMPLE USAGE
-# ============================================================================
-
-if __name__ == "__main__":
-    # Example data
-    job_skills = {
-        "Python": 0.9,
-        "SQL": 0.7,
-        "Leadership": 0.5,
-        "Communication": 0.6
-    }
-    
-    candidates = {
-        "Alice": {
-            "Python": 0.8,
-            "SQL": 0.6,
-            "Leadership": 0.4,
-            "Communication": 0.7
-        },
-        "Bob": {
-            "Python": 0.5,
-            "SQL": 0.9,
-            "Leadership": 0.7
-            # Missing Communication
-        },
-        "Charlie": {
-            "Python": 0.9,
-            "SQL": 0.8,
-            # Missing Leadership and Communication
-        },
-        "Diana": {
-            "Python": 0.7,
-            "SQL": 0.7,
-            "Leadership": 0.6,
-            "Communication": 0.8
-        }
-    }
-    
-    # Create ranker
-    ranker = GraphBasedATSRanker()
-    
-    # Build graph
-    ranker.build_graph(job_skills, candidates)
-    print("Graph Statistics:")
-    print(ranker.get_graph_stats())
-    print()
-    
-    # Compute rankings
-    rankings = ranker.compute_rankings()
-    print("Rankings:")
-    print(rankings)
-    print()
-    
-    # Explain top candidate
-    top_candidate = rankings.iloc[0]['candidate_id']
-    explanation = ranker.explain_ranking(top_candidate)
-    
-    print(f"\nExplanation for {top_candidate} (Rank {explanation['rank']}):")
-    print(f"Score: {explanation['score']:.6f}")
-    print(f"Skill Coverage: {explanation['skill_coverage']:.1%}")
-    print("\nTop Contributing Skills:")
-    for skill in explanation['top_skills']:
-        print(f"  - {skill['skill']}: proficiency={skill['proficiency']:.2f}, "
-              f"importance={skill['importance']:.2f}, "
-              f"contribution={skill['contribution']:.6f}")
-    
-    if explanation['missing_skills']:
-        print("\nMissing Skills:")
-        for skill in explanation['missing_skills']:
-            print(f"  - {skill['skill']}: importance={skill['importance']:.2f}")

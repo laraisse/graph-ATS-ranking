@@ -1,0 +1,86 @@
+{
+  "candidates": [
+    {
+      "id": "Alice",
+      "years_of_experience": 8,
+      "skills": {
+        "Recruitment": 0.92,
+        "Communication": 0.88,
+        "Labor Law": 0.75,
+        "Employee Relations": 0.70,
+        "HRIS": 0.65
+      }
+    },
+    {
+      "id": "Bob",
+      "years_of_experience": 12,
+      "skills": {
+        "Recruitment": 0.70,
+        "Communication": 0.85,
+        "Labor Law": 0.90,
+        "Leadership": 0.88,
+        "Employee Relations": 0.80
+      }
+    },
+    {
+      "id": "Charlie",
+      "years_of_experience": 5,
+      "skills": {
+        "Recruitment": 0.98,
+        "Communication": 0.60
+      }
+    },
+    {
+      "id": "Diana",
+      "years_of_experience": 10,
+      "skills": {
+        "Recruitment": 0.80,
+        "Communication": 0.82,
+        "Labor Law": 0.83,
+        "Employee Relations": 0.85,
+        "HRIS": 0.78,
+        "Leadership": 0.72
+      }
+    },
+    {
+      "id": "Ethan",
+      "years_of_experience": 7,
+      "skills": {
+        "HRIS": 0.92,
+        "Employee Relations": 0.88,
+        "Communication": 0.90
+      }
+    },
+    {
+      "id": "Fatima",
+      "years_of_experience": 9,
+      "skills": {
+        "Recruitment": 0.88,
+        "Communication": 0.86,
+        "Labor Law": 0.84,
+        "Employee Relations": 0.82,
+        "HRIS": 0.80,
+        "Leadership": 0.78
+      }
+    },
+    {
+      "id": "George",
+      "years_of_experience": 15,
+      "skills": {
+        "Leadership": 0.95,
+        "Communication": 0.80,
+        "Employee Relations": 0.75
+      }
+    },
+    {
+      "id": "Hana",
+      "years_of_experience": 6,
+      "skills": {
+        "Recruitment": 0.85,
+        "Communication": 0.90,
+        "Labor Law": 0.70,
+        "HRIS": 0.72
+      }
+    }
+  ]
+}

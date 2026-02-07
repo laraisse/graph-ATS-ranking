@@ -1,0 +1,13 @@
+{
+  "job_id": "HR_2026_001",
+  "title": "HR Manager",
+  "skills": {
+    "Recruitment": 0.95,
+    "Communication": 0.9,
+    "Labor Law": 0.85,
+    "Employee Relations": 0.8,
+    "HRIS": 0.7,
+    "Leadership": 0.75
+  }
+}
+

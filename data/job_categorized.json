@@ -1,0 +1,18 @@
+{
+  "job_id": "DS_2024_001",
+  "title": "Senior Data Scientist",
+  "required": {
+    "Python": 0.95,
+    "Machine Learning": 0.90,
+    "SQL": 0.85
+  },
+  "preferred": {
+    "Statistics": 0.70,
+    "Communication": 0.60,
+    "AWS": 0.50
+  },
+  "nice_to_have": {
+    "Docker": 0.30,
+    "Kubernetes": 0.25
+  }
+}
