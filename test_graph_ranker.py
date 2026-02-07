@@ -12,7 +12,7 @@ Validates that the ranker correctly handles:
 import sys
 sys.path.append('/home/claude')
 
-from graph_ats_ranker import GraphBasedATSRanker, rank_candidates
+from src.graph_ats_ranker import GraphBasedATSRanker, rank_candidates
 import pandas as pd
 import numpy as np
 
