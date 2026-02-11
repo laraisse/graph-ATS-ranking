@@ -13,9 +13,9 @@
     },
     {
       "id": "Bob",
-      "years_of_experience": 12,
+      "years_of_experience": 5,
       "skills": {
-        "Recruitment": 0.70,
+        "Recruitment": 0.80,
         "Communication": 0.85,
         "Labor Law": 0.90,
         "Leadership": 0.88,
@@ -53,7 +53,7 @@
     },
     {
       "id": "Fatima",
-      "years_of_experience": 9,
+      "years_of_experience": 6,
       "skills": {
         "Recruitment": 0.88,
         "Communication": 0.86,
@@ -65,7 +65,7 @@
     },
     {
       "id": "George",
-      "years_of_experience": 15,
+      "years_of_experience": 6,
       "skills": {
         "Leadership": 0.95,
         "Communication": 0.80,
@@ -74,7 +74,7 @@
     },
     {
       "id": "Hana",
-      "years_of_experience": 6,
+      "years_of_experience": 10,
       "skills": {
         "Recruitment": 0.85,
         "Communication": 0.90,

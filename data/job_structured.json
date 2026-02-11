@@ -1,6 +1,8 @@
 {
   "job_id": "HR_2026_001",
   "title": "HR Manager",
+  "min_years_experience": 6,
+  "preferred_years_experience": 9,
   "skills": {
     "Recruitment": 0.95,
     "Communication": 0.9,

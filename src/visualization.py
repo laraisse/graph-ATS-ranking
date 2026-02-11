@@ -1,388 +1,274 @@
-
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import networkx as nx
-import numpy as np
-import pandas as pd
-from typing import Dict
-import seaborn as sns
-
-sns.set_style("whitegrid")
-
-
-def visualize_graph(ranker, figsize=(14, 10), save_path=None):
-    """
-    Visualize the bipartite graph structure.
-    
-    Parameters:
-    -----------
-    ranker : GraphBasedATSRanker
-        A ranker with a built graph
-    figsize : tuple
-        Figure size
-    save_path : str, optional
-        Path to save the figure
-    """
-    if ranker.graph is None:
-        raise ValueError("Ranker must have a graph built")
-    
-    G = ranker.graph
-    
-    # Create layout - three layers
-    pos = {}
-    
-    # Job node at top
-    pos[ranker.job_node] = (0, 2)
-    
-    # Skill nodes in middle
-    skill_nodes = [n for n in G.nodes() if n.startswith(ranker.skill_prefix)]
-    num_skills = len(skill_nodes)
-    for i, node in enumerate(skill_nodes):
-        x = (i - num_skills/2) * 1.5
-        pos[node] = (x, 1)
-    
-    # Candidate nodes at bottom
-    cand_nodes = [n for n in G.nodes() if n.startswith(ranker.candidate_prefix)]
-    num_cands = len(cand_nodes)
-    for i, node in enumerate(cand_nodes):
-        x = (i - num_cands/2) * 1.5
-        pos[node] = (x, 0)
-    
-    # Create figure
-    fig, ax = plt.subplots(figsize=figsize)
-    
-    # Draw nodes
-    job_color = '#FF6B6B'
-    skill_color = '#4ECDC4'
-    cand_color = '#95E1D3'
-    
-    nx.draw_networkx_nodes(G, pos, nodelist=[ranker.job_node], 
-                          node_color=job_color, node_size=1000, 
-                          node_shape='s', ax=ax)
-    nx.draw_networkx_nodes(G, pos, nodelist=skill_nodes,
-                          node_color=skill_color, node_size=800, ax=ax)
-    nx.draw_networkx_nodes(G, pos, nodelist=cand_nodes,
-                          node_color=cand_color, node_size=600, ax=ax)
-    
-    # Draw edges with varying thickness based on weight
-    for u, v, data in G.edges(data=True):
-        weight = data['weight']
-        nx.draw_networkx_edges(G, pos, [(u, v)], width=weight*3,
-                              alpha=0.6, edge_color='gray', ax=ax)
-    
-    # Labels
-    labels = {}
-    labels[ranker.job_node] = "JOB"
-    for node in skill_nodes:
-        labels[node] = node.replace(ranker.skill_prefix, "")
-    for node in cand_nodes:
-        labels[node] = node.replace(ranker.candidate_prefix, "")
-    
-    nx.draw_networkx_labels(G, pos, labels, font_size=9, ax=ax)
-    
-    # Legend
-    job_patch = mpatches.Patch(color=job_color, label='Job')
-    skill_patch = mpatches.Patch(color=skill_color, label='Skills')
-    cand_patch = mpatches.Patch(color=cand_color, label='Candidates')
-    ax.legend(handles=[job_patch, skill_patch, cand_patch], loc='upper right')
-    
-    ax.set_title("ATS Graph Structure\n(Edge thickness = weight)", fontsize=14, weight='bold')
-    ax.axis('off')
-    plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    
-    return fig
-
-
-def plot_rankings(rankings, top_n=10, figsize=(10, 6), save_path=None):
-    """
-    Plot candidate rankings as a horizontal bar chart.
-    
-    Parameters:
-    -----------
-    rankings : pd.DataFrame
-        Rankings from ranker.compute_rankings()
-    top_n : int
-        Number of top candidates to show
-    """
-    data = rankings.head(top_n).copy()
-    
-    fig, ax = plt.subplots(figsize=figsize)
-    
-    colors = plt.cm.viridis(np.linspace(0.3, 0.9, len(data)))
-    
-    ax.barh(range(len(data)), data['score'], color=colors)
-    ax.set_yticks(range(len(data)))
-    ax.set_yticklabels(data['candidate_id'])
-    ax.invert_yaxis()
-    
-    ax.set_xlabel('PageRank Score', fontsize=12)
-    ax.set_title(f'Top {top_n} Candidates by Graph-Based Ranking', 
-                fontsize=14, weight='bold')
-    ax.grid(axis='x', alpha=0.3)
-    
-    # Add score labels
-    for i, (idx, row) in enumerate(data.iterrows()):
-        ax.text(row['score'] + 0.001, i, f"{row['score']:.4f}", 
-               va='center', fontsize=9)
-    
-    plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    
-    return fig
-
-
-def plot_skill_coverage_heatmap(
-    job_skills: Dict[str, float],
-    candidates: Dict[str, Dict[str, float]],
-    rankings: pd.DataFrame = None,
-    figsize=(12, 8),
-    save_path=None
-):
-    """
-    Create a heatmap showing which candidates have which skills.
-    
-    Parameters:
-    -----------
-    job_skills : Dict[str, float]
-        Skill importances
-    candidates : Dict[str, Dict[str, float]]
-        Candidate proficiencies
-    rankings : pd.DataFrame, optional
-        If provided, sort candidates by rank
-    """
-    # Build matrix
-    skills = sorted(job_skills.keys(), key=lambda s: job_skills[s], reverse=True)
-    
-    if rankings is not None:
-        cand_ids = rankings['candidate_id'].tolist()
-    else:
-        cand_ids = sorted(candidates.keys())
-    
-    matrix = []
-    for cand_id in cand_ids:
-        row = [candidates[cand_id].get(skill, 0.0) for skill in skills]
-        matrix.append(row)
-    
-    matrix = np.array(matrix)
-    
-    # Create heatmap
-    fig, ax = plt.subplots(figsize=figsize)
-    
-    im = ax.imshow(matrix, cmap='YlGnBu', aspect='auto', vmin=0, vmax=1)
-    
-    # Set ticks
-    ax.set_xticks(range(len(skills)))
-    ax.set_yticks(range(len(cand_ids)))
-    ax.set_xticklabels(skills, rotation=45, ha='right')
-    ax.set_yticklabels(cand_ids)
-    
-    # Add importance indicators to skill labels
-    skill_labels_with_importance = [
-        f"{skill}\n(imp: {job_skills[skill]:.2f})" for skill in skills
-    ]
-    ax.set_xticklabels(skill_labels_with_importance, rotation=45, ha='right', fontsize=9)
-    
-    # Colorbar
-    cbar = plt.colorbar(im, ax=ax)
-    cbar.set_label('Proficiency', rotation=270, labelpad=20)
-    
-    # Add values in cells
-    for i in range(len(cand_ids)):
-        for j in range(len(skills)):
-            value = matrix[i, j]
-            if value > 0:
-                text = ax.text(j, i, f'{value:.2f}',
-                             ha='center', va='center',
-                             color='white' if value > 0.5 else 'black',
-                             fontsize=8)
-    
-    ax.set_title('Candidate-Skill Coverage Matrix\n(Ordered by importance)', 
-                fontsize=14, weight='bold')
-    ax.set_xlabel('Skills (with importance)', fontsize=11)
-    ax.set_ylabel('Candidates (by rank)' if rankings is not None else 'Candidates', 
-                 fontsize=11)
-    
-    plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    
-    return fig
-
-
-def compare_ranking_methods(
-    job_skills: Dict[str, float],
-    candidates: Dict[str, Dict[str, float]],
-    figsize=(14, 6),
-    save_path=None
-):
-    """
-    Compare graph-based ranking with simple vector distance.
-    
-    Shows how graph ranking differs from naive approaches.
-    """
-    from graph_ats_ranker import rank_candidates
-    
-    # Graph-based ranking
-    graph_rankings = rank_candidates(job_skills, candidates)
-    
-    # Naive ranking: weighted sum
-    naive_scores = []
-    for cand_id, skills in candidates.items():
-        score = sum(skills.get(s, 0) * job_skills[s] for s in job_skills)
-        naive_scores.append({'candidate_id': cand_id, 'score': score})
-    
-    naive_df = pd.DataFrame(naive_scores)
-    naive_df = naive_df.sort_values('score', ascending=False).reset_index(drop=True)
-    naive_df['rank'] = naive_df.index + 1
-    
-    # Merge
-    comparison = graph_rankings[['candidate_id', 'rank']].rename(columns={'rank': 'graph_rank'})
-    comparison = comparison.merge(
-        naive_df[['candidate_id', 'rank']].rename(columns={'rank': 'naive_rank'}),
-        on='candidate_id'
-    )
-    comparison['rank_diff'] = comparison['naive_rank'] - comparison['graph_rank']
-    
-    # Plot
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=figsize)
-    
-    # Side-by-side comparison
-    x = np.arange(len(comparison))
-    width = 0.35
-    
-    ax1.barh(x - width/2, comparison['graph_rank'], width, 
-            label='Graph-based', color='#4ECDC4')
-    ax1.barh(x + width/2, comparison['naive_rank'], width,
-            label='Weighted Sum', color='#FF6B6B')
-    
-    ax1.set_yticks(x)
-    ax1.set_yticklabels(comparison['candidate_id'])
-    ax1.invert_yaxis()
-    ax1.invert_xaxis()
-    ax1.set_xlabel('Rank (lower is better)')
-    ax1.set_title('Ranking Comparison')
-    ax1.legend()
-    ax1.grid(axis='x', alpha=0.3)
-    
-    # Rank change analysis
-    colors = ['green' if d < 0 else 'red' if d > 0 else 'gray' 
-             for d in comparison['rank_diff']]
-    
-    ax2.barh(range(len(comparison)), comparison['rank_diff'], color=colors, alpha=0.7)
-    ax2.set_yticks(range(len(comparison)))
-    ax2.set_yticklabels(comparison['candidate_id'])
-    ax2.invert_yaxis()
-    ax2.axvline(0, color='black', linestyle='--', linewidth=1)
-    ax2.set_xlabel('Rank Change\n(Negative = Graph ranks higher)')
-    ax2.set_title('Graph vs Naive Ranking Difference')
-    ax2.grid(axis='x', alpha=0.3)
-    
-    plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    
-    return fig, comparison
-
-
-def generate_candidate_report(
-    ranker,
-    candidate_id: str,
-    job_skills: Dict[str, float],
-    candidates: Dict[str, Dict[str, float]]
-):
-    """
-    Generate a detailed text report for a candidate.
-    """
-    explanation = ranker.explain_ranking(candidate_id)
-    
-    report = f"""
-{'='*70}
-CANDIDATE REPORT: {candidate_id}
-{'='*70}
-
-OVERALL RANKING
---------------
-Rank:           #{explanation['rank']}
-Score:          {explanation['score']:.6f}
-Skill Coverage: {explanation['skill_coverage']:.1%}
-
-TOP CONTRIBUTING SKILLS
------------------------
 """
-    
-    for skill in explanation['top_skills']:
-        report += f"""
-{skill['skill']}:
-  Proficiency:  {skill['proficiency']:.2f}
-  Importance:   {skill['importance']:.2f}
-  Contribution: {skill['contribution']:.6f}
+Example usage with the exact data structure requested.
 """
-    
-    if explanation['missing_skills']:
-        report += f"""
-MISSING SKILLS (GAPS)
----------------------
-"""
-        for skill in explanation['missing_skills']:
-            report += f"  • {skill['skill']} (importance: {skill['importance']:.2f})\n"
-    else:
-        report += "\nMISSING SKILLS: None ✓\n"
-    
-    report += f"""
-{'='*70}
-"""
-    
-    return report
 
+from graph_ats_ranker import GraphBasedATSRanker, rank_candidates
 
-if __name__ == "__main__":
-    from graph_ats_ranker import GraphBasedATSRanker
-
-    # Example usage
-    job_skills = {
-        "Python": 0.9,
-        "SQL": 0.7,
-        "Leadership": 0.5,
-        "Communication": 0.6
+# Define job requirements with your structure
+job_requirements = {
+    "title": "Senior HR Manager",
+    "min_years_experience": 5,  # Required years
+    "preferred_years_experience": 8,  # Preferred years (optional)
+    "skills": {
+        "HRIS": 0.92,
+        "Employee Relations": 0.88,
+        "Communication": 0.90,
+        "Recruitment": 0.85,
+        "Performance Management": 0.80
     }
+}
 
-    candidates = {
-        "Alice": {"Python": 0.8, "SQL": 0.6, "Leadership": 0.4, "Communication": 0.7},
-        "Bob": {"Python": 0.5, "SQL": 0.9, "Leadership": 0.7},
-        "Charlie": {"Python": 0.9, "SQL": 0.8},
-        "Diana": {"Python": 0.7, "SQL": 0.7, "Leadership": 0.6, "Communication": 0.8}
+# Define candidates with your structure
+candidates = [
+    {
+        "id": "Ethan",
+        "years_of_experience": 7,
+        "skills": {
+            "HRIS": 0.92,
+            "Employee Relations": 0.88,
+            "Communication": 0.90
+        }
+    },
+    {
+        "id": "Sophia",
+        "years_of_experience": 4,
+        "skills": {
+            "HRIS": 0.95,
+            "Employee Relations": 0.85,
+            "Communication": 0.92,
+            "Recruitment": 0.88,
+            "Performance Management": 0.82
+        }
+    },
+    {
+        "id": "Marcus",
+        "years_of_experience": 9,
+        "skills": {
+            "HRIS": 0.80,
+            "Employee Relations": 0.90,
+            "Communication": 0.85,
+            "Recruitment": 0.75,
+            "Performance Management": 0.88
+        }
+    },
+    {
+        "id": "Nina",
+        "years_of_experience": 3,
+        "skills": {
+            "HRIS": 0.88,
+            "Communication": 0.87,
+            "Recruitment": 0.90
+        }
+    },
+    {
+        "id": "Oliver",
+        "years_of_experience": 10,
+        "skills": {
+            "HRIS": 0.85,
+            "Employee Relations": 0.92,
+            "Communication": 0.88,
+            "Performance Management": 0.90
+        }
     }
+]
 
-    # Build and rank
-    ranker = GraphBasedATSRanker()
-    ranker.build_graph(job_skills, candidates)
-    rankings = ranker.compute_rankings()
-    
-    # Create visualizations
-    print("Creating visualizations...")
-    
-    visualize_graph(ranker, save_path='../image/graph_structure.png')
-    print("✓ Graph structure saved")
-    
-    plot_rankings(rankings, save_path='../image/rankings.png')
-    print("✓ Rankings plot saved")
-    
-    plot_skill_coverage_heatmap(job_skills, candidates, rankings, 
-                               save_path='../image/skill_coverage.png')
-    print("✓ Skill coverage heatmap saved")
-    
-    fig, comp = compare_ranking_methods(job_skills, candidates,
-                                       save_path='../image/comparison.png')
-    print("✓ Method comparison saved")
-    
-    # Generate report
-    top_candidate = rankings.iloc[0]['candidate_id']
-    report = generate_candidate_report(ranker, top_candidate, job_skills, candidates)
-    print(report)
+print("=" * 80)
+print("GRAPH-BASED ATS RANKER - EXAMPLE WITH YOUR DATA STRUCTURE")
+print("=" * 80)
+
+print(f"\nJob Title: {job_requirements['title']}")
+print(f"Required Years: {job_requirements['min_years_experience']}")
+print(f"Preferred Years: {job_requirements.get('preferred_years_experience', 'Not specified')}")
+
+print("\nRequired Skills:")
+for skill, importance in sorted(job_requirements['skills'].items(),
+                                key=lambda x: x[1], reverse=True):
+    print(f"  - {skill}: {importance:.2f}")
+
+print("\n" + "=" * 80)
+print("CANDIDATE PROFILES")
+print("=" * 80)
+
+for candidate in candidates:
+    print(f"\n{candidate['id']}:")
+    print(f"  Years of Experience: {candidate['years_of_experience']}")
+    print(f"  Skills:")
+    for skill, proficiency in candidate['skills'].items():
+        print(f"    - {skill}: {proficiency:.2f}")
+
+print("\n" + "=" * 80)
+print("SCENARIO 1: Without Experience Consideration")
+print("=" * 80)
+
+ranker1 = GraphBasedATSRanker(experience_weight=0.0)
+ranker1.build_graph(job_requirements, candidates)
+rankings1 = ranker1.compute_rankings()
+
+print("\nRankings (Skills Only):")
+print(rankings1.to_string(index=False))
+
+print("\n" + "=" * 80)
+print("SCENARIO 2: With Experience (mode='both', weight=0.3)")
+print("=" * 80)
+
+ranker2 = GraphBasedATSRanker(
+    experience_weight=0.3,
+    experience_mode='both'
+)
+ranker2.build_graph(job_requirements, candidates)
+rankings2 = ranker2.compute_rankings()
+
+print("\nRankings (With Experience):")
+print(rankings2.to_string(index=False))
+
+print("\n" + "=" * 80)
+print("SCENARIO 3: Higher Experience Weight (mode='both', weight=0.5)")
+print("=" * 80)
+
+ranker3 = GraphBasedATSRanker(
+    experience_weight=0.5,
+    experience_mode='both'
+)
+ranker3.build_graph(job_requirements, candidates)
+rankings3 = ranker3.compute_rankings()
+
+print("\nRankings (Higher Experience Weight):")
+print(rankings3.to_string(index=False))
+
+print("\n" + "=" * 80)
+print("DETAILED EXPLANATION - TOP CANDIDATE")
+print("=" * 80)
+
+top_candidate = rankings2.iloc[0]['candidate_id']
+explanation = ranker2.explain_ranking(top_candidate, top_k_skills=5)
+
+print(f"\nCandidate: {explanation['candidate_id']}")
+print(f"Rank: {explanation['rank']}")
+print(f"Score: {explanation['score']:.6f}")
+print(f"Years of Experience: {explanation['years_experience']:.1f}")
+print(f"Required Years: {explanation['required_years']:.1f}")
+print(f"Preferred Years: {explanation['preferred_years']}")
+print(f"Experience Status: {explanation['experience_status']}")
+print(f"Experience Contribution: {explanation['experience_contribution']:.6f}")
+print(f"Skill Coverage: {explanation['skill_coverage']:.1%}")
+
+print(f"\nTop Contributing Skills:")
+for skill_info in explanation['top_skills']:
+    print(f"  - {skill_info['skill']}")
+    print(f"      Proficiency: {skill_info['proficiency']:.2f}")
+    print(f"      Importance: {skill_info['importance']:.2f}")
+    print(f"      Contribution: {skill_info['contribution']:.6f}")
+
+if explanation['missing_skills']:
+    print(f"\nMissing Skills:")
+    for skill_info in explanation['missing_skills']:
+        print(f"  - {skill_info['skill']} (importance: {skill_info['importance']:.2f})")
+
+print("\n" + "=" * 80)
+print("COMPARISON OF ALL CANDIDATES")
+print("=" * 80)
+
+print("\n{:<10} {:<8} {:<15} {:<12}".format(
+    "Candidate", "Years", "Status", "Rank Change"
+))
+print("-" * 50)
+
+for i, row1 in rankings1.iterrows():
+    cand_id = row1['candidate_id']
+    years = row1['years_experience']
+
+    # Find rank in scenario 2
+    rank2 = rankings2[rankings2['candidate_id'] == cand_id]['rank'].values[0]
+
+    # Determine status
+    if years < job_requirements['min_years_experience']:
+        status = "Below Req"
+    elif years >= job_requirements.get('preferred_years_experience', 8):
+        status = "Exceeds Pref"
+    else:
+        status = "Meets Req"
+
+    # Calculate rank change
+    rank_change = row1['rank'] - rank2
+    change_str = f"+{rank_change}" if rank_change > 0 else str(rank_change)
+    if rank_change == 0:
+        change_str = "No change"
+
+    print("{:<10} {:<8} {:<15} {:<12}".format(
+        cand_id,
+        f"{years} yrs",
+        status,
+        change_str
+    ))
+
+print("\n" + "=" * 80)
+print("USING CONVENIENCE FUNCTION")
+print("=" * 80)
+
+# Quick ranking with default parameters
+quick_rankings = rank_candidates(
+    job_requirements=job_requirements,
+    candidates=candidates,
+    experience_mode='both',
+    experience_weight=0.3
+)
+
+print("\nQuick Rankings:")
+print(quick_rankings.to_string(index=False))
+
+print("\n" + "=" * 80)
+print("EXAMPLE: JOB WITH NO MINIMUM EXPERIENCE (defaults to 0)")
+print("=" * 80)
+
+job_no_experience = {
+    "title": "Junior HR Coordinator",
+    # min_years_experience not specified - defaults to 0
+    "skills": {
+        "Communication": 0.90,
+        "Organization": 0.85,
+        "MS Office": 0.75
+    }
+}
+
+candidates_mixed = [
+    {
+        "id": "Alex",
+        "years_of_experience": 0,  # Fresh graduate
+        "skills": {
+            "Communication": 0.85,
+            "Organization": 0.90,
+            "MS Office": 0.80
+        }
+    },
+    {
+        "id": "Blake",
+        "years_of_experience": 2,  # Some experience
+        "skills": {
+            "Communication": 0.80,
+            "Organization": 0.75,
+            "MS Office": 0.85
+        }
+    }
+]
+
+print(f"\nJob: {job_no_experience['title']}")
+print(f"Min Years Required: 0 (default - entry level)")
+
+ranker_entry = GraphBasedATSRanker(experience_weight=0.3, experience_mode='both')
+ranker_entry.build_graph(job_no_experience, candidates_mixed)
+rankings_entry = ranker_entry.compute_rankings()
+
+print("\nRankings:")
+print(rankings_entry.to_string(index=False))
+
+print("\nNote: With no experience requirement (0), candidates with some experience")
+print("get a small bonus, but it's minimal since experience isn't a key factor.")
+
+print("\n" + "=" * 80)
+print("GRAPH STATISTICS")
+print("=" * 80)
+
+stats = ranker2.get_graph_stats()
+print(f"\nGraph Details:")
+for key, value in stats.items():
+    print(f"  {key}: {value}")
