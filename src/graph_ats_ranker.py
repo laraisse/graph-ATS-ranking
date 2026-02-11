@@ -5,13 +5,13 @@ import pandas as pd
 
 class GraphBasedATSRanker:
     def __init__(
-        self,
-        damping: float = 0.85,
-        tolerance: float = 1e-6,
-        max_iterations: int = 100,
-        normalize_edges: bool = True,
-        experience_weight: float = 0.3,
-        experience_mode: str = 'both'  # 'boost', 'direct', or 'both'
+            self,
+            damping: float = 0.85,
+            tolerance: float = 1e-6,
+            max_iterations: int = 100,
+            normalize_edges: bool = True,
+            experience_weight: float = 0.3,
+            experience_mode: str = 'both'  # 'boost', 'direct', or 'both'
     ):
         self.damping = damping
         self.tolerance = tolerance
@@ -24,15 +24,17 @@ class GraphBasedATSRanker:
         self.job_node = "JOB"
         self.skill_prefix = "SKILL_"
         self.candidate_prefix = "CAND_"
+        self.perfect_candidate_node = "PERFECT_CANDIDATE"
 
         self.pagerank_scores = None
         self.candidate_rankings = None
+        self.perfect_candidate_score = None
 
     def _calculate_experience_boost(
-        self,
-        candidate_years: float,
-        required_years: float,
-        preferred_years: Optional[float] = None
+            self,
+            candidate_years: float,
+            required_years: float,
+            preferred_years: Optional[float] = None
     ) -> float:
         if preferred_years is None:
             preferred_years = required_years * 1.5 if required_years > 0 else 5.0
@@ -63,10 +65,10 @@ class GraphBasedATSRanker:
             return 1.3 + 0.2 * ratio
 
     def _calculate_experience_match_score(
-        self,
-        candidate_years: float,
-        required_years: float,
-        preferred_years: Optional[float] = None
+            self,
+            candidate_years: float,
+            required_years: float,
+            preferred_years: Optional[float] = None
     ) -> float:
         if preferred_years is None:
             preferred_years = required_years * 1.5 if required_years > 0 else 5.0
@@ -90,7 +92,7 @@ class GraphBasedATSRanker:
         elif candidate_years <= preferred_years:
             # Well qualified
             return 0.7 + 0.3 * ((candidate_years - required_years) /
-                               (preferred_years - required_years))
+                                (preferred_years - required_years))
         else:
             # Overqualified (slight diminishing return)
             excess = min(candidate_years - preferred_years, preferred_years * 2)
@@ -98,9 +100,9 @@ class GraphBasedATSRanker:
             return 1.0 - 0.1 * (excess / max_excess)
 
     def build_graph(
-        self,
-        job_requirements: Dict,
-        candidates: List[Dict]
+            self,
+            job_requirements: Dict,
+            candidates: List[Dict]
     ) -> nx.DiGraph:
         G = nx.DiGraph()
 
@@ -117,11 +119,32 @@ class GraphBasedATSRanker:
             preferred_years=preferred_years
         )
 
+        # Add perfect candidate node
+        G.add_node(
+            self.perfect_candidate_node,
+            node_type='perfect_candidate',
+            years_experience=preferred_years if preferred_years else required_years
+        )
+
         # Add skill nodes and edges from job
         for skill, importance in job_skills.items():
             skill_node = f"{self.skill_prefix}{skill}"
             G.add_node(skill_node, node_type='skill', skill_name=skill)
             G.add_edge(self.job_node, skill_node, weight=importance)
+
+            # Connect perfect candidate to all required skills with maximum proficiency
+            # Perfect candidate gets maximum experience boost
+            perfect_years = preferred_years if preferred_years else required_years
+            perfect_boost = 1.0
+            if self.experience_mode in ['boost', 'both']:
+                perfect_boost = self._calculate_experience_boost(
+                    perfect_years, required_years, preferred_years
+                )
+                perfect_boost = 1.0 + (perfect_boost - 1.0) * self.experience_weight
+
+            # Add edge with maximum proficiency (1.0) and experience boost
+            G.add_edge(skill_node, self.perfect_candidate_node,
+                       weight=1.0 * perfect_boost)
 
         # Add candidate nodes and edges to skills
         for candidate in candidates:
@@ -165,8 +188,20 @@ class GraphBasedATSRanker:
                 edge_weight = experience_match * self.experience_weight
                 if edge_weight > 0:
                     G.add_edge(self.job_node, cand_node,
-                              weight=edge_weight,
-                              edge_type='experience_match')
+                               weight=edge_weight,
+                               edge_type='experience_match')
+
+        # Add direct experience edge to perfect candidate
+        if self.experience_mode in ['direct', 'both']:
+            perfect_years = preferred_years if preferred_years else required_years
+            perfect_exp_match = self._calculate_experience_match_score(
+                perfect_years, required_years, preferred_years
+            )
+            edge_weight = perfect_exp_match * self.experience_weight
+            if edge_weight > 0:
+                G.add_edge(self.job_node, self.perfect_candidate_node,
+                           weight=edge_weight,
+                           edge_type='experience_match')
 
         # Normalize edge weights if requested
         if self.normalize_edges:
@@ -194,7 +229,7 @@ class GraphBasedATSRanker:
 
         # Personalized PageRank: start random walk from job node
         personalization = {node: 1.0 if node == self.job_node else 0.0
-                          for node in self.graph.nodes()}
+                           for node in self.graph.nodes()}
 
         # Run PageRank
         self.pagerank_scores = nx.pagerank(
@@ -206,15 +241,24 @@ class GraphBasedATSRanker:
             weight='weight'
         )
 
+        # Store perfect candidate score for normalization
+        self.perfect_candidate_score = self.pagerank_scores.get(
+            self.perfect_candidate_node, 1.0
+        )
+
         # Extract candidate scores
         candidate_scores = []
         for node, score in self.pagerank_scores.items():
             if node.startswith(self.candidate_prefix):
                 candidate_id = node.replace(self.candidate_prefix, "")
                 years_exp = self.graph.nodes[node].get('years_experience', 0)
+                # Calculate normalized score (as percentage of perfect candidate)
+                normalized_score = (
+                                               score / self.perfect_candidate_score) * 100 if self.perfect_candidate_score > 0 else 0
                 candidate_scores.append({
                     'candidate_id': candidate_id,
                     'score': score,
+                    'normalized_score': normalized_score,
                     'years_experience': years_exp
                 })
 
@@ -227,9 +271,9 @@ class GraphBasedATSRanker:
         return df
 
     def explain_ranking(
-        self,
-        candidate_id: str,
-        top_k_skills: int = 5
+            self,
+            candidate_id: str,
+            top_k_skills: int = 6
     ) -> Dict:
         if self.pagerank_scores is None:
             raise ValueError("Must call compute_rankings() first")
@@ -241,9 +285,10 @@ class GraphBasedATSRanker:
         # Get candidate's rank and score
         rank_row = self.candidate_rankings[
             self.candidate_rankings['candidate_id'] == candidate_id
-        ]
+            ]
         rank = int(rank_row['rank'].values[0])
         score = float(rank_row['score'].values[0])
+        normalized_score = float(rank_row['normalized_score'].values[0])
         years_exp = float(rank_row['years_experience'].values[0])
 
         # Get job requirements
@@ -286,8 +331,8 @@ class GraphBasedATSRanker:
 
         # Get missing skills (gaps)
         job_skills = [node.replace(self.skill_prefix, "")
-                     for node in self.graph.nodes()
-                     if node.startswith(self.skill_prefix)]
+                      for node in self.graph.nodes()
+                      if node.startswith(self.skill_prefix)]
         candidate_skills = [s['skill'] for s in incoming_skills]
         missing_skills = [s for s in job_skills if s not in candidate_skills]
 
@@ -319,6 +364,7 @@ class GraphBasedATSRanker:
             'candidate_id': candidate_id,
             'rank': rank,
             'score': score,
+            'normalized_score': normalized_score,
             'years_experience': years_exp,
             'required_years': required_years,
             'preferred_years': preferred_years,
@@ -334,13 +380,13 @@ class GraphBasedATSRanker:
             raise ValueError("Must call build_graph() first")
 
         num_candidates = len([n for n in self.graph.nodes()
-                             if n.startswith(self.candidate_prefix)])
+                              if n.startswith(self.candidate_prefix)])
         num_skills = len([n for n in self.graph.nodes()
-                         if n.startswith(self.skill_prefix)])
+                          if n.startswith(self.skill_prefix)])
 
         # Count direct experience edges
         direct_exp_edges = sum(1 for _, _, data in self.graph.edges(data=True)
-                              if data.get('edge_type') == 'experience_match')
+                               if data.get('edge_type') == 'experience_match')
 
         required_years = self.graph.nodes[self.job_node].get('required_years', 0)
         preferred_years = self.graph.nodes[self.job_node].get('preferred_years', None)
@@ -353,21 +399,22 @@ class GraphBasedATSRanker:
             'required_years': required_years,
             'preferred_years': preferred_years,
             'direct_experience_edges': direct_exp_edges,
-            'avg_skills_per_candidate': (self.graph.number_of_edges() - direct_exp_edges - num_skills) / num_candidates if num_candidates > 0 else 0,
+            'avg_skills_per_candidate': (
+                                                    self.graph.number_of_edges() - direct_exp_edges - num_skills) / num_candidates if num_candidates > 0 else 0,
             'experience_mode': self.experience_mode,
-            'experience_weight': self.experience_weight
+            'experience_weight': self.experience_weight,
+            'perfect_candidate_score': self.perfect_candidate_score
         }
 
 
 def rank_candidates(
-    job_requirements: Dict,
-    candidates: List[Dict],
-    damping: float = 0.85,
-    normalize: bool = True,
-    experience_weight: float = 0.3,
-    experience_mode: str = 'both'
+        job_requirements: Dict,
+        candidates: List[Dict],
+        damping: float = 0.85,
+        normalize: bool = True,
+        experience_weight: float = 0.3,
+        experience_mode: str = 'both'
 ) -> pd.DataFrame:
-
     ranker = GraphBasedATSRanker(
         damping=damping,
         normalize_edges=normalize,
