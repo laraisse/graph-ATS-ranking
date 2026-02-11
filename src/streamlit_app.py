@@ -89,7 +89,7 @@ def create_skill_coverage_chart(explanation, job_skills):
         skill_data = next((s for s in explanation['top_skills'] if s['skill'] == skill), None)
         if skill_data:
             # The proficiency returned is already adjusted, so we need to use it directly
-            candidate_profs.append(min(skill_data['proficiency'], 1.0))
+            candidate_profs.append(min(skill_data['proficiency'], 100))
         else:
             candidate_profs.append(0)
 
@@ -410,7 +410,7 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
             skills_data = [['Skill', 'Proficiency', 'Importance', 'Match Quality']]
 
             for skill in explanation['top_skills'][:5]:  # Top 5 skills
-                proficiency_pct = f"{skill['proficiency'] * 100:.0f}%"
+                proficiency_pct = f"{skill['proficiency'] :.0f}%"
                 importance_pct = f"{skill['importance'] * 100:.0f}%"
 
                 # Match quality indicator
@@ -867,7 +867,7 @@ def main():
 
                 # Format skills possessed with detailed breakdown
                 skills_detail = "; ".join([
-                    f"{s['skill']} (Proficiency: {s['proficiency'] * 100:.0f}%, Importance: {s['importance'] * 100:.0f}%)"
+                    f"{s['skill']} (Proficiency: {s['proficiency'] :.0f}%, Importance: {s['importance'] * 100:.0f}%)"
                     for s in explanation['top_skills']
                 ])
 
@@ -1063,9 +1063,7 @@ def main():
             skills_to_display = explanation['top_skills'] if show_all_skills else explanation['top_skills'][:5]
 
             skills_df = pd.DataFrame(skills_to_display)
-            skills_df['proficiency'] = skills_df['proficiency'].apply(lambda x: f"{x:.2f}")
-            skills_df['importance'] = skills_df['importance'].apply(lambda x: f"{x:.2f}")
-            skills_df['contribution'] = skills_df['contribution'].apply(lambda x: f"{x:.6f}")
+            skills_df['proficiency'] = skills_df['proficiency'].apply(lambda x: f"{x*100:.2f}%")
 
             st.dataframe(skills_df, use_container_width=True, hide_index=True)
 

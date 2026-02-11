@@ -295,6 +295,20 @@ class GraphBasedATSRanker:
         required_years = self.graph.nodes[self.job_node].get('required_years', 0)
         preferred_years = self.graph.nodes[self.job_node].get('preferred_years', None)
 
+        # Get perfect candidate's skill data for normalization
+        perfect_skills = {}
+        for skill_node, _, data in self.graph.in_edges(self.perfect_candidate_node, data=True):
+            if skill_node == self.job_node:
+                continue
+            skill_name = skill_node.replace(self.skill_prefix, "")
+            proficiency = data['weight']
+            skill_score = self.pagerank_scores[skill_node]
+            perfect_skills[skill_name] = {
+                'proficiency': proficiency,
+                'skill_flow': skill_score,
+                'contribution': proficiency * skill_score
+            }
+
         # Get incoming edges (from skills)
         incoming_skills = []
         for skill_node, _, data in self.graph.in_edges(cand_node, data=True):
@@ -312,12 +326,19 @@ class GraphBasedATSRanker:
             # Get skill's PageRank score (how much flow it received)
             skill_score = self.pagerank_scores[skill_node]
 
+            # Calculate normalized values (as percentage of perfect candidate)
+            normalized_proficiency = 0.0
+            if skill_name in perfect_skills:
+                if perfect_skills[skill_name]['proficiency'] > 0:
+                    normalized_proficiency = (proficiency / perfect_skills[skill_name]['proficiency'])
+
+            contribution = normalized_proficiency*100 * skill_score
             incoming_skills.append({
                 'skill': skill_name,
-                'proficiency': proficiency,
+                'proficiency': normalized_proficiency,
                 'importance': importance,
                 'skill_flow': skill_score,
-                'contribution': proficiency * skill_score  # Approximate contribution
+                'contribution': contribution,
             })
 
         # Sort by contribution
@@ -399,8 +420,7 @@ class GraphBasedATSRanker:
             'required_years': required_years,
             'preferred_years': preferred_years,
             'direct_experience_edges': direct_exp_edges,
-            'avg_skills_per_candidate': (
-                                                    self.graph.number_of_edges() - direct_exp_edges - num_skills) / num_candidates if num_candidates > 0 else 0,
+            'avg_skills_per_candidate': ( self.graph.number_of_edges() - direct_exp_edges - num_skills) / num_candidates if num_candidates > 0 else 0,
             'experience_mode': self.experience_mode,
             'experience_weight': self.experience_weight,
             'perfect_candidate_score': self.perfect_candidate_score
