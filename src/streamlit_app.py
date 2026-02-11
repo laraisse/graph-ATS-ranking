@@ -228,7 +228,7 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
         ['Report Generated:', datetime.now().strftime('%B %d, %Y at %I:%M %p')],
         ['Total Candidates Evaluated:', str(len(rankings))],
         ['Job Position:', job_title],
-        ['Analysis Method:', 'Graph-Based AI Ranking with Experience Weighting']
+        ['Analysis Method:', 'Graph-Based Ranking']
     ]
 
     metadata_table = Table(report_data, colWidths=[2.5 * inch, 4 * inch])
