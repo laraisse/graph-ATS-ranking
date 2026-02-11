@@ -323,6 +323,7 @@ class GraphBasedATSRanker:
             job_edge = self.graph.get_edge_data(self.job_node, skill_node)
             importance = job_edge['weight'] if job_edge else 0.0
 
+
             # Get skill's PageRank score (how much flow it received)
             skill_score = self.pagerank_scores[skill_node]
 
