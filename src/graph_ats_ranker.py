@@ -332,13 +332,12 @@ class GraphBasedATSRanker:
                 if perfect_skills[skill_name]['proficiency'] > 0:
                     normalized_proficiency = (proficiency / perfect_skills[skill_name]['proficiency'])
 
-            contribution = normalized_proficiency*100 * skill_score
+            contribution = proficiency * skill_score
             incoming_skills.append({
                 'skill': skill_name,
                 'proficiency': normalized_proficiency,
                 'importance': importance,
-                'skill_flow': skill_score,
-                'contribution': contribution,
+                'contribution': contribution
             })
 
         # Sort by contribution

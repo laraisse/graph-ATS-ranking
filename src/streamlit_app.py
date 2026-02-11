@@ -372,19 +372,19 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
 
         if explanation['skill_coverage'] >= 0.8 and avg_prof >= 0.7 and exp_status in ['meets requirement',
                                                                                        'exceeds preferred']:
-            recommendation = "⭐ <b>EXCELLENT MATCH - IMMEDIATE INTERVIEW</b>"
+            recommendation = "  EXCELLENT MATCH - IMMEDIATE INTERVIEW"
             recommendation_detail = "This candidate demonstrates exceptional alignment with job requirements. Strong skills coverage with high proficiency levels and appropriate experience. Recommend fast-tracking to interview stage."
             rec_color = colors.HexColor('#28a745')
         elif explanation['skill_coverage'] >= 0.7 and avg_prof >= 0.6:
-            recommendation = "✓ <b>STRONG MATCH - HIGHLY RECOMMENDED</b>"
+            recommendation = "STRONG MATCH - HIGHLY RECOMMENDED"
             recommendation_detail = "Candidate shows very good fit with solid skills and experience. Minor gaps are manageable through onboarding. Recommend scheduling interview."
             rec_color = colors.HexColor('#5bc0de')
         elif explanation['skill_coverage'] >= 0.6:
-            recommendation = "◆ <b>GOOD MATCH - CONSIDER FOR INTERVIEW</b>"
+            recommendation = "GOOD MATCH - CONSIDER FOR INTERVIEW"
             recommendation_detail = "Candidate has foundational skills and meets basic requirements. May need some additional training but shows potential. Consider for interview based on pipeline needs."
             rec_color = colors.HexColor('#ffc107')
         else:
-            recommendation = "△ <b>POTENTIAL MATCH - MAY NEED SIGNIFICANT TRAINING</b>"
+            recommendation = "POTENTIAL MATCH - MAY NEED SIGNIFICANT TRAINING"
             recommendation_detail = "Candidate has some relevant skills but notable gaps exist. Would require substantial training and development. Consider only if candidate pool is limited."
             rec_color = colors.HexColor('#dc3545')
 
@@ -409,8 +409,8 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
         if explanation['top_skills']:
             skills_data = [['Skill', 'Proficiency', 'Importance', 'Match Quality']]
 
-            for skill in explanation['top_skills'][:5]:  # Top 5 skills
-                proficiency_pct = f"{skill['proficiency'] :.0f}%"
+            for skill in explanation['top_skills']:  # Top 6 skills
+                proficiency_pct = f"{skill['proficiency']*100 :.0f}%"
                 importance_pct = f"{skill['importance'] * 100:.0f}%"
 
                 # Match quality indicator
@@ -484,11 +484,9 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
         story.append(Spacer(1, 0.2 * inch))
 
         # Page break after every 2 candidates for readability
-        if (idx + 1) % 2 == 0 and idx < len(top_rankings) - 1:
-            story.append(PageBreak())
+        story.append(PageBreak())
 
     # ========== APPENDIX: METHODOLOGY ==========
-    story.append(PageBreak())
     story.append(Paragraph("APPENDIX: RANKING METHODOLOGY", section_style))
     story.append(Spacer(1, 0.1 * inch))
 
