@@ -3,7 +3,6 @@ import pandas as pd
 import json
 import io
 import sys
-import numpy as np
 sys.path.insert(0, '/mnt/user-data/uploads')
 
 from json_loader import ATSDataLoader
@@ -80,7 +79,6 @@ st.markdown("""
 
 
 def create_skill_coverage_chart(explanation, job_skills):
-    """Create a radar chart showing skill coverage"""
     if not job_skills:
         fig = go.Figure()
         fig.update_layout(
@@ -92,19 +90,14 @@ def create_skill_coverage_chart(explanation, job_skills):
 
     categories = list(job_skills.keys())
 
-    # Get candidate's proficiencies
-    candidate_profs = []
-    for skill in categories:
-        skill_data = next((s for s in explanation['top_skills'] if s['skill'] == skill), None)
-        if skill_data:
-            # The proficiency returned is already adjusted, so we need to use it directly
-            candidate_profs.append(min(skill_data['proficiency'], 100))
-        else:
-            candidate_profs.append(0)
+    # Build a fast lookup: skill name → proficiency (already 0-1 from ranker)
+    prof_lookup = {s['skill']: s['proficiency'] for s in explanation['top_skills']}
 
-    # Get importances
+    # Candidate proficiencies: clamp to [0, 1] in case ranker returns slightly >1
+    candidate_profs = [min(max(prof_lookup.get(skill, 0), 0), 1) for skill in categories]
+
+    # Job importances are already 0-1
     importances = [job_skills[skill] for skill in categories]
-
     fig = go.Figure()
 
     fig.add_trace(go.Scatterpolar(
@@ -134,7 +127,6 @@ def create_skill_coverage_chart(explanation, job_skills):
 
 
 def create_contribution_chart(top_skills):
-    """Create a bar chart showing skill contributions"""
     if not top_skills:
         fig = go.Figure()
         fig.update_layout(
@@ -291,7 +283,6 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
     story.append(Paragraph(summary_text, body_style))
     story.append(PageBreak())
 
-    # ========== RANKING SUMMARY TABLE ==========
     story.append(Paragraph("CANDIDATE RANKINGS AT A GLANCE", section_style))
     story.append(Spacer(1, 0.2 * inch))
 
@@ -348,7 +339,6 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
     story.append(summary_table)
     story.append(PageBreak())
 
-    # ========== DETAILED CANDIDATE PROFILES ==========
     story.append(Paragraph("DETAILED CANDIDATE ANALYSIS", section_style))
     story.append(Spacer(1, 0.2 * inch))
 
@@ -514,7 +504,6 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
         # Page break after every 2 candidates for readability
         story.append(PageBreak())
 
-    # ========== APPENDIX: METHODOLOGY ==========
     story.append(Paragraph("APPENDIX: RANKING METHODOLOGY", section_style))
     story.append(Spacer(1, 0.1 * inch))
 

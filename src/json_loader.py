@@ -1,5 +1,5 @@
 import json
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple
 
 
 class ATSDataLoader:
@@ -12,12 +12,8 @@ class ATSDataLoader:
         candidates = ATSDataLoader.load_candidates(candidates_file)
         return job_requirements_list, candidates
 
-    # ------------------------------------------------------------------
-    # Internal helper: parse one job dict into the standard format
-    # ------------------------------------------------------------------
     @staticmethod
     def _parse_single_job(data: Dict) -> Dict:
-        """Parse a single job dict into the standard internal format."""
 
         # Format 1: New structure with title/min_years_experience/skills as dict
         if 'skills' in data and isinstance(data['skills'], dict):
@@ -64,12 +60,8 @@ class ATSDataLoader:
 
         raise ValueError(f"Unrecognized job format: {data}")
 
-    # ------------------------------------------------------------------
-    # Primary multi-job loader
-    # ------------------------------------------------------------------
     @staticmethod
     def load_job_requirements_list(filepath: str) -> List[Dict]:
-        """Load one or more jobs from a file. Always returns a list of job dicts."""
         with open(filepath, 'r') as f:
             data = json.load(f)
 
@@ -87,17 +79,10 @@ class ATSDataLoader:
 
         raise ValueError(f"Unrecognized job requirements format in {filepath}")
 
-    # ------------------------------------------------------------------
-    # Legacy single-job loader (backward compatible)
-    # ------------------------------------------------------------------
     @staticmethod
     def load_job_requirements(filepath: str) -> Dict:
-        """Legacy single-job loader. Returns the first job found in the file."""
         return ATSDataLoader.load_job_requirements_list(filepath)[0]
 
-    # ------------------------------------------------------------------
-    # Candidates loader
-    # ------------------------------------------------------------------
     @staticmethod
     def _parse_candidates_list(candidates: list) -> List[Dict]:
         result = []
@@ -147,12 +132,8 @@ class ATSDataLoader:
 
         raise ValueError(f"Unrecognized candidates format in {filepath}")
 
-    # ------------------------------------------------------------------
-    # Validation
-    # ------------------------------------------------------------------
     @staticmethod
     def _validate_single_job(job: Dict, label: str = "Job") -> List[str]:
-        """Validate one job dict and return a list of error strings."""
         errors = []
 
         if not job:
@@ -232,57 +213,3 @@ class ATSDataLoader:
                     )
 
         return len(errors) == 0, errors
-
-    # ------------------------------------------------------------------
-    # Save
-    # ------------------------------------------------------------------
-    @staticmethod
-    def save_to_json(
-        job_requirements: 'Dict | List[Dict]',
-        candidates: List[Dict],
-        job_output_file: str,
-        candidates_output_file: str
-    ):
-        with open(job_output_file, 'w') as f:
-            json.dump(job_requirements, f, indent=2)
-
-        with open(candidates_output_file, 'w') as f:
-            json.dump(candidates, f, indent=2)
-
-
-# ----------------------------------------------------------------------
-# Top-level helper
-# ----------------------------------------------------------------------
-def rank_from_json(
-    job_file: str,
-    candidates_file: str,
-    experience_weight: float = 0.3,
-    experience_mode: str = 'both'
-) -> Dict[str, list]:
-    """
-    Load all jobs from job_file and rank candidates against each one.
-    Returns a dict keyed by job title, e.g.:
-        {
-            "Software Engineer": [...ranked candidates...],
-            "Data Scientist":    [...ranked candidates...],
-        }
-    """
-    from graph_ats_ranker import rank_candidates
-
-    jobs, candidates = ATSDataLoader.load_from_json(job_file, candidates_file)
-
-    is_valid, errors = ATSDataLoader.validate_data(jobs, candidates)
-    if not is_valid:
-        raise ValueError("Data validation failed:\n" + "\n".join(errors))
-
-    results = {}
-    for job in jobs:
-        title = job.get('title', 'Job Position')
-        results[title] = rank_candidates(
-            job_requirements=job,
-            candidates=candidates,
-            experience_weight=experience_weight,
-            experience_mode=experience_mode
-        )
-
-    return results

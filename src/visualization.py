@@ -272,3 +272,48 @@ stats = ranker2.get_graph_stats()
 print(f"\nGraph Details:")
 for key, value in stats.items():
     print(f"  {key}: {value}")
+
+
+
+"""
+    # ------------------------------------------------------------------
+    # Save
+    # ------------------------------------------------------------------
+    @staticmethod
+    def save_to_json(
+        job_requirements: 'Dict | List[Dict]',
+        candidates: List[Dict],
+        job_output_file: str,
+        candidates_output_file: str
+    ):
+        with open(job_output_file, 'w') as f:
+            json.dump(job_requirements, f, indent=2)
+
+        with open(candidates_output_file, 'w') as f:
+            json.dump(candidates, f, indent=2)
+
+def rank_from_json(
+    job_file: str,
+    candidates_file: str,
+    experience_weight: float = 0.3,
+    experience_mode: str = 'both'
+) -> Dict[str, list]:
+    from graph_ats_ranker import rank_candidates
+
+    jobs, candidates = ATSDataLoader.load_from_json(job_file, candidates_file)
+
+    is_valid, errors = ATSDataLoader.validate_data(jobs, candidates)
+    if not is_valid:
+        raise ValueError("Data validation failed:\n" + "\n".join(errors))
+
+    results = {}
+    for job in jobs:
+        title = job.get('title', 'Job Position')
+        results[title] = rank_candidates(
+            job_requirements=job,
+            candidates=candidates,
+            experience_weight=experience_weight,
+            experience_mode=experience_mode
+        )
+
+    return results"""

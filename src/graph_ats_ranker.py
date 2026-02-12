@@ -46,7 +46,7 @@ class GraphBasedATSRanker:
             elif candidate_years <= 3:
                 return 1.0 + 0.1 * (candidate_years / 3)
             else:
-                return 1.1
+                return 1.3
 
         if candidate_years < required_years:
             # Penalty for insufficient experience (50% to 100%)
@@ -62,7 +62,7 @@ class GraphBasedATSRanker:
             # Diminishing returns for exceeding preferred (130% to 150%)
             excess = min(candidate_years - preferred_years, preferred_years)
             ratio = excess / preferred_years if preferred_years > 0 else 1
-            return 1.3 - 0.2 * ratio
+            return 1 - 0.2 * ratio
 
     def _calculate_experience_match_score(
             self,
@@ -97,7 +97,7 @@ class GraphBasedATSRanker:
             # Overqualified (slight diminishing return)
             excess = min(candidate_years - preferred_years, preferred_years * 2)
             max_excess = preferred_years * 2
-            return 1.0 - 0.1 * (excess / max_excess)
+            return 1.0 - 0.2 * (excess / max_excess)
 
     def build_graph(
             self,
@@ -211,10 +211,6 @@ class GraphBasedATSRanker:
         return G
 
     def _normalize_graph_weights(self, G: nx.DiGraph):
-        """
-        Normalize outgoing edge weights so they sum to 1 per node.
-        This makes the graph a proper transition probability matrix.
-        """
         for node in G.nodes():
             out_edges = G.out_edges(node, data=True)
             if out_edges:
@@ -273,7 +269,7 @@ class GraphBasedATSRanker:
     def explain_ranking(
             self,
             candidate_id: str,
-            top_k_skills: int = 6
+            top_k_skills: int = 10
     ) -> Dict:
         if self.pagerank_scores is None:
             raise ValueError("Must call compute_rankings() first")
