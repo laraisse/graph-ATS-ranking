@@ -81,6 +81,15 @@ st.markdown("""
 
 def create_skill_coverage_chart(explanation, job_skills):
     """Create a radar chart showing skill coverage"""
+    if not job_skills:
+        fig = go.Figure()
+        fig.update_layout(
+            height=400,
+            annotations=[dict(text="No job skills defined", x=0.5, y=0.5,
+                              xref="paper", yref="paper", showarrow=False, font=dict(size=14))]
+        )
+        return fig
+
     categories = list(job_skills.keys())
 
     # Get candidate's proficiencies
@@ -126,7 +135,26 @@ def create_skill_coverage_chart(explanation, job_skills):
 
 def create_contribution_chart(top_skills):
     """Create a bar chart showing skill contributions"""
+    if not top_skills:
+        fig = go.Figure()
+        fig.update_layout(
+            height=300,
+            title="Skill Contributions to Final Score",
+            annotations=[dict(text="No matching skills for this job", x=0.5, y=0.5,
+                              xref="paper", yref="paper", showarrow=False, font=dict(size=14))]
+        )
+        return fig
+
     df = pd.DataFrame(top_skills)
+    if 'contribution' not in df.columns:
+        fig = go.Figure()
+        fig.update_layout(
+            height=300,
+            title="Skill Contributions to Final Score",
+            annotations=[dict(text="No contribution data available", x=0.5, y=0.5,
+                              xref="paper", yref="paper", showarrow=False, font=dict(size=14))]
+        )
+        return fig
 
     fig = px.bar(
         df,
@@ -540,10 +568,13 @@ def validate_json_file(uploaded_file, file_type):
         uploaded_file.seek(0)
 
         if file_type == "job":
+            # Accept a single job dict, a list of job dicts, or {"jobs": [...]}
             if isinstance(data, dict):
                 return True, "Valid job requirements file"
+            elif isinstance(data, list) and all(isinstance(j, dict) for j in data):
+                return True, f"Valid multi-job file ({len(data)} jobs)"
             else:
-                return False, "Job file must be a JSON object"
+                return False, "Job file must be a JSON object or an array of job objects"
 
         elif file_type == "candidates":
             if isinstance(data, (dict, list)):
@@ -636,6 +667,7 @@ def main():
         st.markdown("### 📋 JSON Format Examples")
 
         with st.expander("Job Requirements Format"):
+            st.markdown("**Single job:**")
             st.code('''
 {
   "title": "Senior HR Manager",
@@ -647,6 +679,21 @@ def main():
     "Communication": 0.90
   }
 }
+            ''', language='json')
+            st.markdown("**Multiple jobs (array):**")
+            st.code('''
+[
+  {
+    "title": "Senior HR Manager",
+    "min_years_experience": 5,
+    "skills": { "HRIS": 0.92, "Communication": 0.90 }
+  },
+  {
+    "title": "Recruiter",
+    "min_years_experience": 2,
+    "skills": { "Sourcing": 0.85, "Communication": 0.88 }
+  }
+]
             ''', language='json')
 
         with st.expander("Candidates Format"):
@@ -748,17 +795,31 @@ def main():
                 with open(file_path_candidates, "wb") as f:
                     f.write(candidates_file.getvalue())
 
-                job_requirements, candidates = ATSDataLoader.load_from_json(
+                all_jobs, candidates = ATSDataLoader.load_from_json(
                     file_path_job,
                     file_path_candidates
                 )
 
-                is_valid, errors = ATSDataLoader.validate_data(job_requirements, candidates)
+                is_valid, errors = ATSDataLoader.validate_data(all_jobs, candidates)
                 if not is_valid:
                     st.error("❌ Data validation failed:")
                     for error in errors:
                         st.error(f"  • {error}")
                     return
+
+        # ── Job selector (shown only when multiple jobs are present) ────────
+        if len(all_jobs) > 1:
+            job_titles = [j.get("title", f"Job {i+1}") for i, j in enumerate(all_jobs)]
+            selected_job_title = st.selectbox(
+                "🗂️ Select job to rank against",
+                options=job_titles,
+                help="Your job file contains multiple positions. Choose which one to rank candidates against."
+            )
+            selected_job_index = job_titles.index(selected_job_title)
+        else:
+            selected_job_index = 0
+
+        job_requirements = all_jobs[selected_job_index]
 
         with st.spinner("🧮 Ranking candidates..."):
             ranker = GraphBasedATSRanker(
@@ -772,7 +833,7 @@ def main():
             num_top = max(1, int(num_total * top_percentage / 100))
             top_rankings = rankings.head(num_top)
 
-        st.success(f"✅ Successfully ranked {num_total} candidates!")
+        st.success(f"✅ Successfully ranked {num_total} candidates against **{job_requirements.get('title', 'Job Position')}**!")
 
         # Extract job details
         job_title = job_requirements.get('title', 'Job Position')
@@ -1045,14 +1106,16 @@ def main():
             with col1:
                 st.plotly_chart(
                     create_skill_coverage_chart(explanation, job_skills),
-                    use_container_width=True
+                    use_container_width=True,
+                    key=f"radar_{candidate_id}"
                 )
 
             with col2:
                 skills_to_show = explanation['top_skills'] if show_all_skills else explanation['top_skills'][:5]
                 st.plotly_chart(
                     create_contribution_chart(skills_to_show),
-                    use_container_width=True
+                    use_container_width=True,
+                    key=f"bar_{candidate_id}"
                 )
 
             # Skills breakdown
@@ -1060,10 +1123,12 @@ def main():
 
             skills_to_display = explanation['top_skills'] if show_all_skills else explanation['top_skills'][:5]
 
-            skills_df = pd.DataFrame(skills_to_display)
-            skills_df['proficiency'] = skills_df['proficiency'].apply(lambda x: f"{x*100:.2f}%")
-
-            st.dataframe(skills_df, use_container_width=True, hide_index=True)
+            if skills_to_display:
+                skills_df = pd.DataFrame(skills_to_display)
+                skills_df['proficiency'] = skills_df['proficiency'].apply(lambda x: f"{x*100:.2f}%")
+                st.dataframe(skills_df, use_container_width=True, hide_index=True)
+            else:
+                st.info("ℹ️ This candidate has no skills matching this job's requirements.")
 
             # Missing skills
             if explanation['missing_skills']:

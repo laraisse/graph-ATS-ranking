@@ -1,0 +1,1563 @@
+{
+  "candidates": [
+    {
+      "id": "Candidate_1",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 6,
+      "skills": {
+        "REST APIs": 0.89,
+        "System Design": 0.95,
+        "AWS": 0.72,
+        "Git": 0.82,
+        "Python": 0.71,
+        "Deep Learning": 0.61,
+        "Machine Learning": 0.6
+      }
+    },
+    {
+      "id": "Candidate_2",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 13,
+      "skills": {
+        "Docker": 0.78,
+        "Code Review": 0.76,
+        "REST APIs": 0.91,
+        "SQL": 0.73,
+        "Python": 0.81,
+        "AWS": 0.8,
+        "System Design": 0.8,
+        "Git": 0.77,
+        "Labor Law": 0.56
+      }
+    },
+    {
+      "id": "Candidate_3",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 6,
+      "skills": {
+        "System Design": 0.71,
+        "REST APIs": 0.76,
+        "SQL": 0.78,
+        "AWS": 0.72,
+        "Git": 0.77,
+        "Docker": 0.73,
+        "Python": 0.78,
+        "Code Review": 0.88,
+        "Deep Learning": 0.47,
+        "Leadership": 0.49,
+        "Recruitment": 0.73
+      }
+    },
+    {
+      "id": "Candidate_4",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 6,
+      "skills": {
+        "Docker": 0.89,
+        "System Design": 0.76,
+        "Code Review": 0.79,
+        "Git": 0.92,
+        "SQL": 0.72,
+        "REST APIs": 0.93,
+        "Leadership": 0.47,
+        "AWS": 0.73,
+        "Scikit-learn": 0.71
+      }
+    },
+    {
+      "id": "Candidate_5",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 10,
+      "skills": {
+        "Code Review": 0.74,
+        "Docker": 0.91,
+        "Git": 0.85,
+        "AWS": 0.91,
+        "System Design": 0.82,
+        "REST APIs": 0.86,
+        "Employee Relations": 0.57,
+        "Deep Learning": 0.66,
+        "Python": 0.7
+      }
+    },
+    {
+      "id": "Candidate_6",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 7,
+      "skills": {
+        "AWS": 0.98,
+        "REST APIs": 0.85,
+        "Python": 0.97,
+        "Docker": 0.94,
+        "Code Review": 0.7,
+        "SQL": 0.9,
+        "Recruitment": 0.44,
+        "HRIS": 0.55,
+        "Communication": 0.56
+      }
+    },
+    {
+      "id": "Candidate_7",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 9,
+      "skills": {
+        "System Design": 0.8,
+        "AWS": 0.75,
+        "Git": 0.97,
+        "SQL": 0.96,
+        "Code Review": 0.96,
+        "Python": 0.87,
+        "Statistics": 0.48,
+        "REST APIs": 0.48,
+        "Communication": 0.6,
+        "Employee Relations": 0.43
+      }
+    },
+    {
+      "id": "Candidate_8",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 12,
+      "skills": {
+        "SQL": 0.77,
+        "System Design": 0.94,
+        "Git": 0.82,
+        "Docker": 0.76,
+        "AWS": 0.85,
+        "HRIS": 0.54,
+        "Employee Relations": 0.64
+      }
+    },
+    {
+      "id": "Candidate_9",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 10,
+      "skills": {
+        "Code Review": 0.86,
+        "Python": 0.7,
+        "System Design": 0.9,
+        "Git": 0.72,
+        "AWS": 0.72,
+        "REST APIs": 0.71,
+        "Docker": 0.79,
+        "SQL": 0.84,
+        "Recruitment": 0.59,
+        "Machine Learning": 0.65,
+        "Employee Relations": 0.71
+      }
+    },
+    {
+      "id": "Candidate_10",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 12,
+      "skills": {
+        "Code Review": 0.88,
+        "AWS": 0.8,
+        "Docker": 0.82,
+        "System Design": 0.94,
+        "Python": 0.72,
+        "Git": 0.88,
+        "Statistics": 0.54
+      }
+    },
+    {
+      "id": "Candidate_11",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 10,
+      "skills": {
+        "Docker": 0.74,
+        "System Design": 0.75,
+        "AWS": 0.83,
+        "REST APIs": 0.94,
+        "Code Review": 0.72,
+        "Statistics": 0.63
+      }
+    },
+    {
+      "id": "Candidate_12",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 13,
+      "skills": {
+        "System Design": 0.84,
+        "AWS": 0.76,
+        "Code Review": 0.81,
+        "Git": 0.72,
+        "Docker": 0.81,
+        "Employee Relations": 0.5,
+        "Pandas": 0.64,
+        "Recruitment": 0.66,
+        "Data Visualization": 0.67
+      }
+    },
+    {
+      "id": "Candidate_13",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 12,
+      "skills": {
+        "Docker": 0.79,
+        "SQL": 0.71,
+        "System Design": 0.83,
+        "Python": 0.96,
+        "REST APIs": 0.85,
+        "AWS": 0.72,
+        "Labor Law": 0.47
+      }
+    },
+    {
+      "id": "Candidate_14",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 6,
+      "skills": {
+        "AWS": 0.72,
+        "Python": 0.88,
+        "REST APIs": 0.86,
+        "System Design": 0.79,
+        "Code Review": 0.77,
+        "SQL": 0.89,
+        "Employee Relations": 0.45,
+        "Communication": 0.63,
+        "Data Visualization": 0.56
+      }
+    },
+    {
+      "id": "Candidate_15",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 6,
+      "skills": {
+        "Code Review": 0.85,
+        "REST APIs": 0.84,
+        "AWS": 0.74,
+        "Python": 0.8,
+        "Git": 0.72,
+        "Employee Relations": 0.46,
+        "Deep Learning": 0.69
+      }
+    },
+    {
+      "id": "Candidate_16",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 9,
+      "skills": {
+        "REST APIs": 0.73,
+        "Git": 0.73,
+        "Python": 0.85,
+        "System Design": 0.78,
+        "SQL": 0.87,
+        "Employee Relations": 0.7,
+        "HRIS": 0.58,
+        "Recruitment": 0.49
+      }
+    },
+    {
+      "id": "Candidate_17",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 5,
+      "skills": {
+        "AWS": 0.79,
+        "Code Review": 0.74,
+        "SQL": 0.97,
+        "Python": 0.75,
+        "REST APIs": 0.82,
+        "Machine Learning": 0.73,
+        "Statistics": 0.64,
+        "System Design": 0.45,
+        "Pandas": 0.41
+      }
+    },
+    {
+      "id": "Candidate_18",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 10,
+      "skills": {
+        "AWS": 0.95,
+        "System Design": 0.76,
+        "Python": 0.77,
+        "SQL": 0.73,
+        "REST APIs": 0.92,
+        "Git": 0.95,
+        "HRIS": 0.7,
+        "Pandas": 0.74,
+        "Deep Learning": 0.68,
+        "Employee Relations": 0.71
+      }
+    },
+    {
+      "id": "Candidate_19",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 5,
+      "skills": {
+        "Git": 0.92,
+        "AWS": 0.73,
+        "Docker": 0.94,
+        "System Design": 0.94,
+        "SQL": 0.76,
+        "Python": 0.93,
+        "Communication": 0.41,
+        "Employee Relations": 0.47,
+        "Deep Learning": 0.51,
+        "Pandas": 0.7
+      }
+    },
+    {
+      "id": "Candidate_20",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 9,
+      "skills": {
+        "AWS": 0.75,
+        "Git": 0.97,
+        "REST APIs": 0.77,
+        "SQL": 0.73,
+        "Python": 0.82,
+        "Docker": 0.9,
+        "System Design": 0.79,
+        "Data Visualization": 0.71
+      }
+    },
+    {
+      "id": "Candidate_21",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 8,
+      "skills": {
+        "Python": 0.72,
+        "Git": 0.89,
+        "Docker": 0.79,
+        "Code Review": 0.79,
+        "System Design": 0.94,
+        "AWS": 0.9,
+        "SQL": 0.78,
+        "Pandas": 0.54,
+        "Leadership": 0.5,
+        "Communication": 0.44
+      }
+    },
+    {
+      "id": "Candidate_22",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 11,
+      "skills": {
+        "SQL": 0.78,
+        "REST APIs": 0.82,
+        "AWS": 0.86,
+        "Code Review": 0.88,
+        "Docker": 0.83,
+        "Git": 0.82,
+        "Python": 0.76,
+        "System Design": 0.83,
+        "Recruitment": 0.5,
+        "Scikit-learn": 0.63
+      }
+    },
+    {
+      "id": "Candidate_23",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 10,
+      "skills": {
+        "Docker": 0.74,
+        "Git": 0.71,
+        "SQL": 0.98,
+        "System Design": 0.87,
+        "REST APIs": 0.92,
+        "Leadership": 0.65,
+        "Python": 0.53,
+        "Code Review": 0.54,
+        "Employee Relations": 0.45
+      }
+    },
+    {
+      "id": "Candidate_24",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 5,
+      "skills": {
+        "AWS": 0.71,
+        "System Design": 0.77,
+        "Code Review": 0.94,
+        "REST APIs": 0.83,
+        "Docker": 0.92,
+        "Pandas": 0.69,
+        "Machine Learning": 0.71,
+        "Git": 0.55
+      }
+    },
+    {
+      "id": "Candidate_25",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 13,
+      "skills": {
+        "SQL": 0.88,
+        "Git": 0.78,
+        "Docker": 0.72,
+        "AWS": 0.78,
+        "Code Review": 0.78,
+        "Python": 0.79,
+        "System Design": 0.85,
+        "REST APIs": 0.74,
+        "Data Visualization": 0.65,
+        "Deep Learning": 0.42
+      }
+    },
+    {
+      "id": "Candidate_26",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 11,
+      "skills": {
+        "Code Review": 0.94,
+        "Docker": 0.91,
+        "Python": 0.81,
+        "System Design": 0.7,
+        "AWS": 0.8,
+        "REST APIs": 0.91,
+        "Git": 0.94,
+        "HRIS": 0.71,
+        "Recruitment": 0.57,
+        "Labor Law": 0.5,
+        "SQL": 0.57
+      }
+    },
+    {
+      "id": "Candidate_27",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 11,
+      "skills": {
+        "AWS": 0.95,
+        "Git": 0.87,
+        "System Design": 0.89,
+        "Docker": 0.72,
+        "Code Review": 0.82,
+        "SQL": 0.94,
+        "Python": 0.75,
+        "Leadership": 0.56,
+        "Communication": 0.52,
+        "Deep Learning": 0.71
+      }
+    },
+    {
+      "id": "Candidate_28",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 9,
+      "skills": {
+        "REST APIs": 0.76,
+        "AWS": 0.72,
+        "Python": 0.97,
+        "Docker": 0.71,
+        "Git": 0.71,
+        "SQL": 0.77,
+        "Code Review": 0.93,
+        "System Design": 0.87,
+        "Deep Learning": 0.63,
+        "Machine Learning": 0.6
+      }
+    },
+    {
+      "id": "Candidate_29",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 8,
+      "skills": {
+        "REST APIs": 0.86,
+        "AWS": 0.96,
+        "SQL": 0.86,
+        "System Design": 0.95,
+        "Python": 0.81,
+        "Docker": 0.96,
+        "Code Review": 0.76,
+        "Git": 0.87,
+        "Scikit-learn": 0.7,
+        "Communication": 0.61
+      }
+    },
+    {
+      "id": "Candidate_30",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 6,
+      "skills": {
+        "Git": 0.84,
+        "REST APIs": 0.8,
+        "Docker": 0.94,
+        "SQL": 0.93,
+        "Python": 0.73,
+        "Code Review": 0.65,
+        "Recruitment": 0.55,
+        "Leadership": 0.66
+      }
+    },
+    {
+      "id": "Candidate_31",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 9,
+      "skills": {
+        "Code Review": 0.78,
+        "Docker": 0.83,
+        "Git": 0.91,
+        "REST APIs": 0.86,
+        "SQL": 0.89,
+        "System Design": 0.79,
+        "Python": 0.84,
+        "AWS": 0.79,
+        "Employee Relations": 0.5,
+        "Leadership": 0.61,
+        "Communication": 0.71,
+        "Recruitment": 0.59
+      }
+    },
+    {
+      "id": "Candidate_32",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 13,
+      "skills": {
+        "System Design": 0.91,
+        "Code Review": 0.89,
+        "Git": 0.88,
+        "Docker": 0.84,
+        "REST APIs": 0.92,
+        "SQL": 0.73,
+        "Leadership": 0.49,
+        "Pandas": 0.63
+      }
+    },
+    {
+      "id": "Candidate_33",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 10,
+      "skills": {
+        "Git": 0.79,
+        "Docker": 0.76,
+        "Code Review": 0.9,
+        "REST APIs": 0.79,
+        "SQL": 0.91,
+        "System Design": 0.97,
+        "AWS": 0.89,
+        "Python": 0.75,
+        "Communication": 0.74,
+        "Pandas": 0.69,
+        "HRIS": 0.5,
+        "Labor Law": 0.53
+      }
+    },
+    {
+      "id": "Candidate_34",
+      "primary_role": "Senior Software Engineer",
+      "years_of_experience": 9,
+      "skills": {
+        "SQL": 0.9,
+        "Code Review": 0.74,
+        "Python": 0.94,
+        "Git": 0.84,
+        "AWS": 0.94,
+        "Leadership": 0.52,
+        "Labor Law": 0.74,
+        "Recruitment": 0.49
+      }
+    },
+    {
+      "id": "Candidate_35",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Machine Learning": 0.74,
+        "SQL": 0.93,
+        "Scikit-learn": 0.97,
+        "Python": 0.72,
+        "Data Visualization": 0.77,
+        "Git": 0.48,
+        "Labor Law": 0.58,
+        "Pandas": 0.56,
+        "Recruitment": 0.55
+      }
+    },
+    {
+      "id": "Candidate_36",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 9,
+      "skills": {
+        "Python": 0.77,
+        "Data Visualization": 0.72,
+        "Pandas": 0.77,
+        "Deep Learning": 0.85,
+        "Machine Learning": 0.74,
+        "Statistics": 0.81,
+        "Scikit-learn": 0.89,
+        "AWS": 0.65,
+        "System Design": 0.65,
+        "Employee Relations": 0.56,
+        "Labor Law": 0.64
+      }
+    },
+    {
+      "id": "Candidate_37",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 7,
+      "skills": {
+        "Scikit-learn": 0.93,
+        "Python": 0.72,
+        "Data Visualization": 0.75,
+        "Machine Learning": 0.79,
+        "Pandas": 0.91,
+        "SQL": 0.86,
+        "Leadership": 0.64,
+        "System Design": 0.64,
+        "Labor Law": 0.73
+      }
+    },
+    {
+      "id": "Candidate_38",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Deep Learning": 0.71,
+        "Python": 0.76,
+        "Data Visualization": 0.89,
+        "Scikit-learn": 0.94,
+        "SQL": 0.86,
+        "Statistics": 0.71,
+        "Machine Learning": 0.91,
+        "Pandas": 0.93,
+        "Employee Relations": 0.56
+      }
+    },
+    {
+      "id": "Candidate_39",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Statistics": 0.81,
+        "Data Visualization": 0.79,
+        "SQL": 0.73,
+        "Pandas": 0.75,
+        "Python": 0.82,
+        "Machine Learning": 0.84,
+        "Deep Learning": 0.89,
+        "Labor Law": 0.43,
+        "Git": 0.49,
+        "System Design": 0.44,
+        "Code Review": 0.67
+      }
+    },
+    {
+      "id": "Candidate_40",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Deep Learning": 0.87,
+        "SQL": 0.84,
+        "Python": 0.82,
+        "Machine Learning": 0.71,
+        "Statistics": 0.77,
+        "Labor Law": 0.55,
+        "AWS": 0.64
+      }
+    },
+    {
+      "id": "Candidate_41",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 4,
+      "skills": {
+        "SQL": 0.85,
+        "Pandas": 0.73,
+        "Machine Learning": 0.98,
+        "Statistics": 0.96,
+        "Python": 0.83,
+        "Git": 0.69
+      }
+    },
+    {
+      "id": "Candidate_42",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Data Visualization": 0.81,
+        "SQL": 0.96,
+        "Scikit-learn": 0.84,
+        "Pandas": 0.95,
+        "Machine Learning": 0.94,
+        "Deep Learning": 0.78,
+        "Python": 0.92,
+        "Communication": 0.5,
+        "Git": 0.5,
+        "AWS": 0.61,
+        "Statistics": 0.75
+      }
+    },
+    {
+      "id": "Candidate_43",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Deep Learning": 0.91,
+        "Data Visualization": 0.81,
+        "SQL": 0.96,
+        "Statistics": 0.94,
+        "Scikit-learn": 0.97,
+        "Pandas": 0.77,
+        "AWS": 0.51,
+        "Recruitment": 0.57,
+        "Machine Learning": 0.72,
+        "System Design": 0.53
+      }
+    },
+    {
+      "id": "Candidate_44",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 5,
+      "skills": {
+        "Python": 0.85,
+        "Machine Learning": 0.83,
+        "Data Visualization": 0.9,
+        "Pandas": 0.81,
+        "Statistics": 0.88,
+        "Deep Learning": 0.74,
+        "Scikit-learn": 0.83,
+        "SQL": 0.97,
+        "Docker": 0.7,
+        "Code Review": 0.7,
+        "REST APIs": 0.7
+      }
+    },
+    {
+      "id": "Candidate_45",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 9,
+      "skills": {
+        "Deep Learning": 0.98,
+        "Scikit-learn": 0.91,
+        "Data Visualization": 0.82,
+        "Python": 0.73,
+        "Pandas": 0.88,
+        "SQL": 0.94,
+        "Machine Learning": 0.82,
+        "Statistics": 0.68,
+        "Labor Law": 0.5,
+        "Communication": 0.53
+      }
+    },
+    {
+      "id": "Candidate_46",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 5,
+      "skills": {
+        "Scikit-learn": 0.72,
+        "Data Visualization": 0.94,
+        "Pandas": 0.87,
+        "Machine Learning": 0.77,
+        "Deep Learning": 0.96,
+        "Python": 0.74,
+        "HRIS": 0.63,
+        "Employee Relations": 0.71,
+        "Leadership": 0.56,
+        "SQL": 0.5
+      }
+    },
+    {
+      "id": "Candidate_47",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Machine Learning": 0.97,
+        "SQL": 0.89,
+        "Statistics": 0.83,
+        "Data Visualization": 0.78,
+        "Pandas": 0.98,
+        "Scikit-learn": 0.94,
+        "Employee Relations": 0.53
+      }
+    },
+    {
+      "id": "Candidate_48",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 8,
+      "skills": {
+        "Data Visualization": 0.95,
+        "Python": 0.91,
+        "Pandas": 0.93,
+        "SQL": 0.95,
+        "Statistics": 0.92,
+        "Scikit-learn": 0.76,
+        "Deep Learning": 0.92,
+        "Docker": 0.62,
+        "AWS": 0.64
+      }
+    },
+    {
+      "id": "Candidate_49",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 5,
+      "skills": {
+        "Python": 0.91,
+        "Statistics": 0.73,
+        "SQL": 0.78,
+        "Deep Learning": 0.91,
+        "Scikit-learn": 0.75,
+        "Pandas": 0.71,
+        "Code Review": 0.53
+      }
+    },
+    {
+      "id": "Candidate_50",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Statistics": 0.97,
+        "Deep Learning": 0.74,
+        "SQL": 0.97,
+        "Scikit-learn": 0.94,
+        "Data Visualization": 0.9,
+        "Python": 0.97,
+        "Machine Learning": 0.97,
+        "REST APIs": 0.49,
+        "Code Review": 0.44,
+        "System Design": 0.53
+      }
+    },
+    {
+      "id": "Candidate_51",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 7,
+      "skills": {
+        "Pandas": 0.88,
+        "Python": 0.88,
+        "Deep Learning": 0.83,
+        "Machine Learning": 0.9,
+        "SQL": 0.88,
+        "Scikit-learn": 0.73,
+        "Data Visualization": 0.71,
+        "Statistics": 0.71,
+        "REST APIs": 0.45,
+        "Labor Law": 0.56,
+        "AWS": 0.63,
+        "HRIS": 0.66
+      }
+    },
+    {
+      "id": "Candidate_52",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Statistics": 0.71,
+        "SQL": 0.8,
+        "Pandas": 0.82,
+        "Python": 0.97,
+        "Scikit-learn": 0.94,
+        "Deep Learning": 0.73,
+        "Machine Learning": 0.89,
+        "Data Visualization": 0.85,
+        "System Design": 0.47,
+        "Code Review": 0.44,
+        "Communication": 0.7
+      }
+    },
+    {
+      "id": "Candidate_53",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "SQL": 0.71,
+        "Pandas": 0.79,
+        "Scikit-learn": 0.98,
+        "Data Visualization": 0.92,
+        "Python": 0.76,
+        "Code Review": 0.68,
+        "Deep Learning": 0.48
+      }
+    },
+    {
+      "id": "Candidate_54",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 5,
+      "skills": {
+        "Data Visualization": 0.92,
+        "Scikit-learn": 0.73,
+        "Machine Learning": 0.94,
+        "Pandas": 0.74,
+        "Statistics": 0.8,
+        "Python": 0.41,
+        "AWS": 0.49
+      }
+    },
+    {
+      "id": "Candidate_55",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 5,
+      "skills": {
+        "Machine Learning": 0.84,
+        "Pandas": 0.96,
+        "Python": 0.71,
+        "SQL": 0.92,
+        "Data Visualization": 0.94,
+        "Deep Learning": 0.85,
+        "Scikit-learn": 0.83,
+        "Statistics": 0.97,
+        "Git": 0.7
+      }
+    },
+    {
+      "id": "Candidate_56",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 9,
+      "skills": {
+        "Deep Learning": 0.79,
+        "Pandas": 0.74,
+        "SQL": 0.74,
+        "Python": 0.87,
+        "Data Visualization": 0.86,
+        "Communication": 0.5,
+        "Code Review": 0.58,
+        "Machine Learning": 0.55
+      }
+    },
+    {
+      "id": "Candidate_57",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 4,
+      "skills": {
+        "Scikit-learn": 0.81,
+        "SQL": 0.9,
+        "Machine Learning": 0.79,
+        "Deep Learning": 0.79,
+        "Statistics": 0.77,
+        "Pandas": 0.97,
+        "REST APIs": 0.55,
+        "Labor Law": 0.66,
+        "Recruitment": 0.53,
+        "Docker": 0.45
+      }
+    },
+    {
+      "id": "Candidate_58",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 3,
+      "skills": {
+        "Machine Learning": 0.8,
+        "SQL": 0.86,
+        "Statistics": 0.76,
+        "Scikit-learn": 0.88,
+        "Python": 0.76,
+        "Deep Learning": 0.73,
+        "Pandas": 0.94,
+        "REST APIs": 0.48,
+        "Communication": 0.55,
+        "HRIS": 0.6
+      }
+    },
+    {
+      "id": "Candidate_59",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Data Visualization": 0.96,
+        "Python": 0.8,
+        "Machine Learning": 0.75,
+        "Statistics": 0.74,
+        "Deep Learning": 0.88,
+        "REST APIs": 0.66
+      }
+    },
+    {
+      "id": "Candidate_60",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 3,
+      "skills": {
+        "SQL": 0.74,
+        "Deep Learning": 0.79,
+        "Scikit-learn": 0.79,
+        "Pandas": 0.96,
+        "Statistics": 0.87,
+        "Employee Relations": 0.46
+      }
+    },
+    {
+      "id": "Candidate_61",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 3,
+      "skills": {
+        "Data Visualization": 0.87,
+        "SQL": 0.82,
+        "Pandas": 0.76,
+        "Scikit-learn": 0.84,
+        "Deep Learning": 0.8,
+        "AWS": 0.64
+      }
+    },
+    {
+      "id": "Candidate_62",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Python": 0.78,
+        "Machine Learning": 0.76,
+        "SQL": 0.74,
+        "Data Visualization": 0.77,
+        "Deep Learning": 0.79,
+        "Pandas": 0.7,
+        "Statistics": 0.91,
+        "Scikit-learn": 0.59,
+        "Leadership": 0.48
+      }
+    },
+    {
+      "id": "Candidate_63",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 11,
+      "skills": {
+        "Machine Learning": 0.96,
+        "SQL": 0.94,
+        "Pandas": 0.86,
+        "Python": 0.86,
+        "Scikit-learn": 0.9,
+        "Data Visualization": 0.82,
+        "Deep Learning": 0.73,
+        "Communication": 0.46
+      }
+    },
+    {
+      "id": "Candidate_64",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Machine Learning": 0.85,
+        "SQL": 0.81,
+        "Python": 0.79,
+        "Deep Learning": 0.8,
+        "Scikit-learn": 0.79,
+        "Statistics": 0.75,
+        "Data Visualization": 0.84,
+        "HRIS": 0.58
+      }
+    },
+    {
+      "id": "Candidate_65",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 8,
+      "skills": {
+        "Statistics": 0.87,
+        "Machine Learning": 0.91,
+        "Python": 0.88,
+        "Scikit-learn": 0.75,
+        "Deep Learning": 0.92,
+        "Pandas": 0.84,
+        "SQL": 0.91,
+        "Docker": 0.51,
+        "HRIS": 0.74,
+        "Labor Law": 0.51,
+        "Recruitment": 0.55
+      }
+    },
+    {
+      "id": "Candidate_66",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Data Visualization": 0.83,
+        "Scikit-learn": 0.71,
+        "Statistics": 0.8,
+        "Deep Learning": 0.78,
+        "Python": 0.88,
+        "Machine Learning": 0.97,
+        "SQL": 0.73,
+        "Pandas": 0.87,
+        "Git": 0.56,
+        "Docker": 0.68,
+        "HRIS": 0.63,
+        "System Design": 0.51
+      }
+    },
+    {
+      "id": "Candidate_67",
+      "primary_role": "Data Scientist",
+      "years_of_experience": 10,
+      "skills": {
+        "Python": 0.88,
+        "SQL": 0.71,
+        "Deep Learning": 0.9,
+        "Statistics": 0.98,
+        "Pandas": 0.85,
+        "Data Visualization": 0.87,
+        "Communication": 0.54,
+        "AWS": 0.52,
+        "Leadership": 0.61
+      }
+    },
+    {
+      "id": "Candidate_68",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Labor Law": 0.9,
+        "Recruitment": 0.88,
+        "Employee Relations": 0.95,
+        "Communication": 0.94,
+        "Leadership": 0.79,
+        "SQL": 0.51,
+        "AWS": 0.63
+      }
+    },
+    {
+      "id": "Candidate_69",
+      "primary_role": "HR Manager",
+      "years_of_experience": 12,
+      "skills": {
+        "HRIS": 0.88,
+        "Recruitment": 0.79,
+        "Labor Law": 0.74,
+        "Employee Relations": 0.9,
+        "Communication": 0.97,
+        "Python": 0.63
+      }
+    },
+    {
+      "id": "Candidate_70",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Recruitment": 0.97,
+        "Labor Law": 0.84,
+        "HRIS": 0.76,
+        "Leadership": 0.74,
+        "Employee Relations": 0.72,
+        "Communication": 0.94,
+        "Code Review": 0.67
+      }
+    },
+    {
+      "id": "Candidate_71",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Leadership": 0.74,
+        "Labor Law": 0.75,
+        "Communication": 0.89,
+        "HRIS": 0.87,
+        "Employee Relations": 0.95,
+        "Statistics": 0.65,
+        "AWS": 0.74,
+        "Deep Learning": 0.61,
+        "Python": 0.66
+      }
+    },
+    {
+      "id": "Candidate_72",
+      "primary_role": "HR Manager",
+      "years_of_experience": 13,
+      "skills": {
+        "HRIS": 0.8,
+        "Communication": 0.97,
+        "Labor Law": 0.98,
+        "Leadership": 0.83,
+        "Recruitment": 0.78,
+        "Machine Learning": 0.69,
+        "SQL": 0.68,
+        "AWS": 0.45,
+        "REST APIs": 0.49
+      }
+    },
+    {
+      "id": "Candidate_73",
+      "primary_role": "HR Manager",
+      "years_of_experience": 13,
+      "skills": {
+        "HRIS": 0.78,
+        "Recruitment": 0.95,
+        "Leadership": 0.74,
+        "Communication": 0.82,
+        "Employee Relations": 0.96,
+        "Labor Law": 0.76,
+        "AWS": 0.54,
+        "Statistics": 0.53,
+        "Data Visualization": 0.54,
+        "Pandas": 0.43
+      }
+    },
+    {
+      "id": "Candidate_74",
+      "primary_role": "HR Manager",
+      "years_of_experience": 9,
+      "skills": {
+        "Labor Law": 0.71,
+        "Recruitment": 0.96,
+        "Leadership": 0.83,
+        "HRIS": 0.93,
+        "Employee Relations": 0.91,
+        "Data Visualization": 0.41,
+        "Code Review": 0.48,
+        "Statistics": 0.45,
+        "System Design": 0.73
+      }
+    },
+    {
+      "id": "Candidate_75",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Recruitment": 0.77,
+        "Labor Law": 0.88,
+        "Communication": 0.87,
+        "Employee Relations": 0.72,
+        "Leadership": 0.93,
+        "HRIS": 0.84,
+        "Git": 0.58
+      }
+    },
+    {
+      "id": "Candidate_76",
+      "primary_role": "HR Manager",
+      "years_of_experience": 9,
+      "skills": {
+        "Labor Law": 0.77,
+        "Employee Relations": 0.82,
+        "Recruitment": 0.89,
+        "Leadership": 0.72,
+        "Communication": 0.97,
+        "Code Review": 0.59
+      }
+    },
+    {
+      "id": "Candidate_77",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Employee Relations": 0.97,
+        "Leadership": 0.77,
+        "Recruitment": 0.7,
+        "Labor Law": 0.92,
+        "Communication": 0.8,
+        "Docker": 0.6
+      }
+    },
+    {
+      "id": "Candidate_78",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Recruitment": 0.93,
+        "Labor Law": 0.89,
+        "HRIS": 0.97,
+        "Employee Relations": 0.83,
+        "Leadership": 0.75,
+        "System Design": 0.67,
+        "Git": 0.56
+      }
+    },
+    {
+      "id": "Candidate_79",
+      "primary_role": "HR Manager",
+      "years_of_experience": 10,
+      "skills": {
+        "Recruitment": 0.84,
+        "Communication": 0.98,
+        "Leadership": 0.85,
+        "HRIS": 0.77,
+        "Labor Law": 0.91,
+        "Deep Learning": 0.7,
+        "Employee Relations": 0.42
+      }
+    },
+    {
+      "id": "Candidate_80",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Recruitment": 0.79,
+        "Labor Law": 0.75,
+        "Employee Relations": 0.89,
+        "Communication": 0.8,
+        "HRIS": 0.92,
+        "Leadership": 0.77,
+        "Docker": 0.55
+      }
+    },
+    {
+      "id": "Candidate_81",
+      "primary_role": "HR Manager",
+      "years_of_experience": 12,
+      "skills": {
+        "HRIS": 0.79,
+        "Labor Law": 0.78,
+        "Leadership": 0.82,
+        "Recruitment": 0.9,
+        "Employee Relations": 0.75,
+        "AWS": 0.7,
+        "Data Visualization": 0.52,
+        "Statistics": 0.75,
+        "Git": 0.5
+      }
+    },
+    {
+      "id": "Candidate_82",
+      "primary_role": "HR Manager",
+      "years_of_experience": 6,
+      "skills": {
+        "Leadership": 0.97,
+        "Employee Relations": 0.74,
+        "Labor Law": 0.87,
+        "HRIS": 0.92,
+        "Recruitment": 0.71,
+        "Scikit-learn": 0.67
+      }
+    },
+    {
+      "id": "Candidate_83",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Employee Relations": 0.97,
+        "HRIS": 0.8,
+        "Recruitment": 0.91,
+        "Labor Law": 0.86,
+        "Leadership": 0.85,
+        "Communication": 0.81,
+        "Scikit-learn": 0.66,
+        "System Design": 0.57,
+        "Statistics": 0.54
+      }
+    },
+    {
+      "id": "Candidate_84",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Labor Law": 0.89,
+        "Leadership": 0.98,
+        "Employee Relations": 0.76,
+        "Recruitment": 0.74,
+        "Communication": 0.72,
+        "SQL": 0.56,
+        "HRIS": 0.43
+      }
+    },
+    {
+      "id": "Candidate_85",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Leadership": 0.92,
+        "Recruitment": 0.84,
+        "Labor Law": 0.73,
+        "Communication": 0.76,
+        "HRIS": 0.74,
+        "Employee Relations": 0.92,
+        "AWS": 0.59
+      }
+    },
+    {
+      "id": "Candidate_86",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "HRIS": 0.98,
+        "Communication": 0.9,
+        "Recruitment": 0.85,
+        "Employee Relations": 0.92,
+        "Leadership": 0.93,
+        "Labor Law": 0.72,
+        "Git": 0.56,
+        "System Design": 0.58,
+        "Machine Learning": 0.44
+      }
+    },
+    {
+      "id": "Candidate_87",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Communication": 0.79,
+        "Employee Relations": 0.75,
+        "Recruitment": 0.96,
+        "HRIS": 0.76,
+        "Labor Law": 0.97,
+        "Pandas": 0.47,
+        "System Design": 0.73,
+        "Deep Learning": 0.5
+      }
+    },
+    {
+      "id": "Candidate_88",
+      "primary_role": "HR Manager",
+      "years_of_experience": 10,
+      "skills": {
+        "HRIS": 0.94,
+        "Communication": 0.86,
+        "Leadership": 0.93,
+        "Recruitment": 0.71,
+        "Employee Relations": 0.71,
+        "Git": 0.6,
+        "Scikit-learn": 0.62,
+        "Pandas": 0.41
+      }
+    },
+    {
+      "id": "Candidate_89",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Leadership": 0.83,
+        "Labor Law": 0.89,
+        "Employee Relations": 0.74,
+        "Recruitment": 0.82,
+        "Communication": 0.83,
+        "HRIS": 0.8,
+        "AWS": 0.51,
+        "Docker": 0.75
+      }
+    },
+    {
+      "id": "Candidate_90",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Communication": 0.73,
+        "Labor Law": 0.83,
+        "Recruitment": 0.74,
+        "Leadership": 0.71,
+        "Employee Relations": 0.96,
+        "HRIS": 0.94,
+        "Scikit-learn": 0.65,
+        "REST APIs": 0.47,
+        "AWS": 0.46,
+        "Python": 0.75
+      }
+    },
+    {
+      "id": "Candidate_91",
+      "primary_role": "HR Manager",
+      "years_of_experience": 13,
+      "skills": {
+        "Labor Law": 0.97,
+        "Employee Relations": 0.76,
+        "Recruitment": 0.8,
+        "HRIS": 0.71,
+        "Communication": 0.84,
+        "Leadership": 0.95,
+        "Deep Learning": 0.55,
+        "Code Review": 0.71,
+        "Statistics": 0.65,
+        "System Design": 0.67
+      }
+    },
+    {
+      "id": "Candidate_92",
+      "primary_role": "HR Manager",
+      "years_of_experience": 11,
+      "skills": {
+        "Employee Relations": 0.72,
+        "Recruitment": 0.84,
+        "Communication": 0.91,
+        "Leadership": 0.78,
+        "Labor Law": 0.98,
+        "REST APIs": 0.74
+      }
+    },
+    {
+      "id": "Candidate_93",
+      "primary_role": "HR Manager",
+      "years_of_experience": 12,
+      "skills": {
+        "Labor Law": 0.84,
+        "HRIS": 0.71,
+        "Leadership": 0.74,
+        "Recruitment": 0.79,
+        "Employee Relations": 0.83,
+        "Communication": 0.83,
+        "AWS": 0.51,
+        "Python": 0.54
+      }
+    },
+    {
+      "id": "Candidate_94",
+      "primary_role": "HR Manager",
+      "years_of_experience": 10,
+      "skills": {
+        "HRIS": 0.93,
+        "Leadership": 0.8,
+        "Employee Relations": 0.89,
+        "Labor Law": 0.97,
+        "Communication": 0.86,
+        "Recruitment": 0.92,
+        "Python": 0.57
+      }
+    },
+    {
+      "id": "Candidate_95",
+      "primary_role": "HR Manager",
+      "years_of_experience": 9,
+      "skills": {
+        "HRIS": 0.74,
+        "Employee Relations": 0.89,
+        "Communication": 0.71,
+        "Labor Law": 0.97,
+        "Leadership": 0.73,
+        "Data Visualization": 0.51
+      }
+    },
+    {
+      "id": "Candidate_96",
+      "primary_role": "HR Manager",
+      "years_of_experience": 8,
+      "skills": {
+        "Leadership": 0.9,
+        "Communication": 0.85,
+        "Employee Relations": 0.86,
+        "Labor Law": 0.98,
+        "HRIS": 0.83,
+        "Recruitment": 0.81,
+        "Machine Learning": 0.52,
+        "Code Review": 0.52
+      }
+    },
+    {
+      "id": "Candidate_97",
+      "primary_role": "HR Manager",
+      "years_of_experience": 10,
+      "skills": {
+        "Communication": 0.96,
+        "Leadership": 0.98,
+        "Labor Law": 0.92,
+        "Employee Relations": 0.9,
+        "HRIS": 0.89,
+        "Recruitment": 0.84,
+        "AWS": 0.5,
+        "Code Review": 0.6,
+        "Docker": 0.59,
+        "Deep Learning": 0.71
+      }
+    },
+    {
+      "id": "Candidate_98",
+      "primary_role": "HR Manager",
+      "years_of_experience": 12,
+      "skills": {
+        "Communication": 0.96,
+        "Labor Law": 0.88,
+        "Recruitment": 0.91,
+        "Leadership": 0.76,
+        "Employee Relations": 0.93,
+        "HRIS": 0.78,
+        "REST APIs": 0.66,
+        "System Design": 0.48,
+        "Python": 0.42
+      }
+    },
+    {
+      "id": "Candidate_99",
+      "primary_role": "HR Manager",
+      "years_of_experience": 14,
+      "skills": {
+        "Leadership": 0.79,
+        "Communication": 0.83,
+        "Recruitment": 0.89,
+        "Employee Relations": 0.74,
+        "HRIS": 0.97,
+        "Data Visualization": 0.73,
+        "Git": 0.71
+      }
+    },
+    {
+      "id": "Candidate_100",
+      "primary_role": "HR Manager",
+      "years_of_experience": 13,
+      "skills": {
+        "Labor Law": 0.95,
+        "Leadership": 0.73,
+        "HRIS": 0.86,
+        "Employee Relations": 0.85,
+        "Recruitment": 0.9,
+        "SQL": 0.72
+      }
+    }
+  ]
+}

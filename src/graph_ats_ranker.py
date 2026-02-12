@@ -52,7 +52,7 @@ class GraphBasedATSRanker:
             # Penalty for insufficient experience (50% to 100%)
             ratio = candidate_years / required_years if required_years > 0 else 0
             return 0.5 + 0.5 * ratio
-        elif candidate_years < preferred_years:
+        elif candidate_years <= preferred_years:
             # Bonus for meeting requirements (100% to 130%)
             excess = candidate_years - required_years
             range_size = preferred_years - required_years
@@ -62,7 +62,7 @@ class GraphBasedATSRanker:
             # Diminishing returns for exceeding preferred (130% to 150%)
             excess = min(candidate_years - preferred_years, preferred_years)
             ratio = excess / preferred_years if preferred_years > 0 else 1
-            return 1.3 + 0.2 * ratio
+            return 1.3 - 0.2 * ratio
 
     def _calculate_experience_match_score(
             self,
@@ -181,7 +181,7 @@ class GraphBasedATSRanker:
 
             # Add direct job→candidate edge based on experience match
             if self.experience_mode in ['direct', 'both']:
-                experience_match = self._calculate_experience_match_score(
+                experience_match = self._calculate_experience_boost(
                     years, required_years, preferred_years
                 )
                 # Scale by experience weight
@@ -194,7 +194,7 @@ class GraphBasedATSRanker:
         # Add direct experience edge to perfect candidate
         if self.experience_mode in ['direct', 'both']:
             perfect_years = preferred_years if preferred_years else required_years
-            perfect_exp_match = self._calculate_experience_match_score(
+            perfect_exp_match = self._calculate_experience_boost(
                 perfect_years, required_years, preferred_years
             )
             edge_weight = perfect_exp_match * self.experience_weight

@@ -1,15 +1,46 @@
-{
-  "job_id": "HR_2026_001",
-  "title": "HR Manager",
-  "min_years_experience": 6,
-  "preferred_years_experience": 9,
-  "skills": {
-    "Recruitment": 0.95,
-    "Communication": 0.9,
-    "Labor Law": 0.85,
-    "Employee Relations": 0.8,
-    "HRIS": 0.7,
-    "Leadership": 0.75
+[
+  {
+    "title": "Senior Software Engineer",
+    "min_years_experience": 5,
+    "preferred_years_experience": 8,
+    "skills": {
+      "Python": 0.95,
+      "System Design": 0.90,
+      "SQL": 0.80,
+      "Docker": 0.75,
+      "REST APIs": 0.85,
+      "Git": 0.70,
+      "AWS": 0.72,
+      "Code Review": 0.78
+    }
+  },
+  {
+    "title": "Data Scientist",
+    "min_years_experience": 3,
+    "preferred_years_experience": 6,
+    "skills": {
+      "Python": 0.92,
+      "Machine Learning": 0.95,
+      "Statistics": 0.90,
+      "SQL": 0.75,
+      "Data Visualization": 0.80,
+      "Pandas": 0.85,
+      "Scikit-learn": 0.88,
+      "Deep Learning": 0.70
+    }
+  },
+    {
+    "job_id": "HR_2026_001",
+    "title": "HR Manager",
+    "min_years_experience": 6,
+    "preferred_years_experience": 9,
+    "skills": {
+      "Recruitment": 0.95,
+      "Communication": 0.9,
+      "Labor Law": 0.85,
+      "Employee Relations": 0.8,
+      "HRIS": 0.7,
+      "Leadership": 0.75
+    }
   }
-}
-
+]

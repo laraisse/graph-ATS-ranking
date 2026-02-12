@@ -1,0 +1,1035 @@
+{
+  "candidates": [
+    {
+      "id": "Candidate_1",
+      "years_of_experience": 4,
+      "skills": {
+        "Communication": 0.63,
+        "Employee Relations": 0.98,
+        "HRIS": 0.86,
+        "Labor Law": 0.64,
+        "Leadership": 0.79,
+        "Recruitment": 0.83
+      }
+    },
+    {
+      "id": "Candidate_2",
+      "years_of_experience": 3,
+      "skills": {
+        "Employee Relations": 0.66,
+        "Communication": 0.8,
+        "Recruitment": 0.8,
+        "HRIS": 0.67,
+        "Leadership": 0.72,
+        "Labor Law": 0.76
+      }
+    },
+    {
+      "id": "Candidate_3",
+      "years_of_experience": 2,
+      "skills": {
+        "Employee Relations": 0.66,
+        "Recruitment": 0.8,
+        "Communication": 0.87,
+        "HRIS": 0.66,
+        "Labor Law": 0.82
+      }
+    },
+    {
+      "id": "Candidate_4",
+      "years_of_experience": 12,
+      "skills": {
+        "Employee Relations": 0.78,
+        "Labor Law": 0.94
+      }
+    },
+    {
+      "id": "Candidate_5",
+      "years_of_experience": 3,
+      "skills": {
+        "HRIS": 0.67,
+        "Leadership": 0.62,
+        "Recruitment": 0.83,
+        "Communication": 0.71,
+        "Employee Relations": 0.84,
+        "Labor Law": 0.73
+      }
+    },
+    {
+      "id": "Candidate_6",
+      "years_of_experience": 13,
+      "skills": {
+        "Labor Law": 0.62,
+        "Communication": 0.93,
+        "Employee Relations": 0.88,
+        "HRIS": 0.63,
+        "Leadership": 0.8,
+        "Recruitment": 0.76
+      }
+    },
+    {
+      "id": "Candidate_7",
+      "years_of_experience": 14,
+      "skills": {
+        "Recruitment": 0.97,
+        "Employee Relations": 0.7,
+        "Labor Law": 0.79,
+        "HRIS": 0.94,
+        "Communication": 0.9
+      }
+    },
+    {
+      "id": "Candidate_8",
+      "years_of_experience": 2,
+      "skills": {
+        "Communication": 0.87,
+        "Recruitment": 0.77,
+        "Employee Relations": 0.91,
+        "HRIS": 0.66
+      }
+    },
+    {
+      "id": "Candidate_9",
+      "years_of_experience": 11,
+      "skills": {
+        "HRIS": 0.76,
+        "Leadership": 0.62
+      }
+    },
+    {
+      "id": "Candidate_10",
+      "years_of_experience": 12,
+      "skills": {
+        "Communication": 0.93,
+        "Leadership": 0.97,
+        "Labor Law": 0.79,
+        "HRIS": 0.86,
+        "Employee Relations": 0.76,
+        "Recruitment": 0.92
+      }
+    },
+    {
+      "id": "Candidate_11",
+      "years_of_experience": 3,
+      "skills": {
+        "HRIS": 0.95,
+        "Recruitment": 0.97,
+        "Communication": 0.63,
+        "Employee Relations": 0.86,
+        "Leadership": 0.65
+      }
+    },
+    {
+      "id": "Candidate_12",
+      "years_of_experience": 6,
+      "skills": {
+        "Communication": 0.89,
+        "Employee Relations": 0.76,
+        "Recruitment": 0.75,
+        "Labor Law": 0.62,
+        "HRIS": 0.78,
+        "Leadership": 0.78
+      }
+    },
+    {
+      "id": "Candidate_13",
+      "years_of_experience": 1,
+      "skills": {
+        "Employee Relations": 0.94,
+        "Communication": 0.61,
+        "Recruitment": 0.65,
+        "Labor Law": 0.72,
+        "HRIS": 0.97,
+        "Leadership": 0.91
+      }
+    },
+    {
+      "id": "Candidate_14",
+      "years_of_experience": 9,
+      "skills": {
+        "HRIS": 0.62,
+        "Employee Relations": 0.84
+      }
+    },
+    {
+      "id": "Candidate_15",
+      "years_of_experience": 1,
+      "skills": {
+        "Recruitment": 0.71,
+        "Communication": 0.83,
+        "HRIS": 0.8,
+        "Leadership": 0.76,
+        "Employee Relations": 0.94,
+        "Labor Law": 0.91
+      }
+    },
+    {
+      "id": "Candidate_16",
+      "years_of_experience": 3,
+      "skills": {
+        "Employee Relations": 0.65,
+        "HRIS": 0.91,
+        "Recruitment": 0.95
+      }
+    },
+    {
+      "id": "Candidate_17",
+      "years_of_experience": 9,
+      "skills": {
+        "HRIS": 0.71,
+        "Leadership": 0.86,
+        "Employee Relations": 0.92,
+        "Recruitment": 0.7,
+        "Labor Law": 0.66
+      }
+    },
+    {
+      "id": "Candidate_18",
+      "years_of_experience": 13,
+      "skills": {
+        "Labor Law": 0.79,
+        "Employee Relations": 0.61
+      }
+    },
+    {
+      "id": "Candidate_19",
+      "years_of_experience": 11,
+      "skills": {
+        "Employee Relations": 0.78,
+        "Recruitment": 0.61
+      }
+    },
+    {
+      "id": "Candidate_20",
+      "years_of_experience": 3,
+      "skills": {
+        "Labor Law": 0.83,
+        "Recruitment": 0.81,
+        "Employee Relations": 0.76,
+        "HRIS": 0.73,
+        "Leadership": 0.85
+      }
+    },
+    {
+      "id": "Candidate_21",
+      "years_of_experience": 14,
+      "skills": {
+        "Communication": 0.74,
+        "Labor Law": 0.92,
+        "Employee Relations": 0.61,
+        "Leadership": 0.8,
+        "Recruitment": 0.71,
+        "HRIS": 0.71
+      }
+    },
+    {
+      "id": "Candidate_22",
+      "years_of_experience": 9,
+      "skills": {
+        "Employee Relations": 0.88,
+        "Leadership": 0.9
+      }
+    },
+    {
+      "id": "Candidate_23",
+      "years_of_experience": 7,
+      "skills": {
+        "HRIS": 0.96,
+        "Communication": 0.83,
+        "Leadership": 0.63
+      }
+    },
+    {
+      "id": "Candidate_24",
+      "years_of_experience": 9,
+      "skills": {
+        "HRIS": 0.62,
+        "Recruitment": 0.94
+      }
+    },
+    {
+      "id": "Candidate_25",
+      "years_of_experience": 11,
+      "skills": {
+        "HRIS": 0.9,
+        "Recruitment": 0.96
+      }
+    },
+    {
+      "id": "Candidate_26",
+      "years_of_experience": 9,
+      "skills": {
+        "Leadership": 0.85,
+        "HRIS": 0.75,
+        "Labor Law": 0.96,
+        "Communication": 0.66,
+        "Recruitment": 0.78
+      }
+    },
+    {
+      "id": "Candidate_27",
+      "years_of_experience": 15,
+      "skills": {
+        "Communication": 0.8,
+        "Recruitment": 0.83,
+        "Employee Relations": 0.92,
+        "Labor Law": 0.73,
+        "HRIS": 0.95,
+        "Leadership": 0.75
+      }
+    },
+    {
+      "id": "Candidate_28",
+      "years_of_experience": 6,
+      "skills": {
+        "Employee Relations": 0.62,
+        "Recruitment": 0.85,
+        "HRIS": 0.72
+      }
+    },
+    {
+      "id": "Candidate_29",
+      "years_of_experience": 14,
+      "skills": {
+        "Labor Law": 0.67,
+        "Communication": 0.72,
+        "Employee Relations": 0.68,
+        "HRIS": 0.64,
+        "Recruitment": 0.76,
+        "Leadership": 0.82
+      }
+    },
+    {
+      "id": "Candidate_30",
+      "years_of_experience": 13,
+      "skills": {
+        "Leadership": 0.89,
+        "HRIS": 0.73,
+        "Recruitment": 0.67,
+        "Communication": 0.96,
+        "Labor Law": 0.76
+      }
+    },
+    {
+      "id": "Candidate_31",
+      "years_of_experience": 9,
+      "skills": {
+        "Communication": 0.96,
+        "Leadership": 0.78,
+        "Labor Law": 0.7,
+        "Employee Relations": 0.63,
+        "Recruitment": 0.88
+      }
+    },
+    {
+      "id": "Candidate_32",
+      "years_of_experience": 15,
+      "skills": {
+        "HRIS": 0.67,
+        "Leadership": 0.8,
+        "Recruitment": 0.63,
+        "Employee Relations": 0.66,
+        "Labor Law": 0.7,
+        "Communication": 0.83
+      }
+    },
+    {
+      "id": "Candidate_33",
+      "years_of_experience": 2,
+      "skills": {
+        "Leadership": 0.96,
+        "Communication": 0.68,
+        "HRIS": 0.84,
+        "Employee Relations": 0.94
+      }
+    },
+    {
+      "id": "Candidate_34",
+      "years_of_experience": 12,
+      "skills": {
+        "Leadership": 0.69,
+        "Labor Law": 0.86,
+        "HRIS": 0.8,
+        "Communication": 0.65,
+        "Recruitment": 0.9
+      }
+    },
+    {
+      "id": "Candidate_35",
+      "years_of_experience": 5,
+      "skills": {
+        "Leadership": 0.93,
+        "Employee Relations": 0.94,
+        "Recruitment": 0.95,
+        "Communication": 0.86,
+        "HRIS": 0.93,
+        "Labor Law": 0.64
+      }
+    },
+    {
+      "id": "Candidate_36",
+      "years_of_experience": 7,
+      "skills": {
+        "Employee Relations": 0.81,
+        "Leadership": 0.89,
+        "Labor Law": 0.66,
+        "Recruitment": 0.78,
+        "Communication": 0.76
+      }
+    },
+    {
+      "id": "Candidate_37",
+      "years_of_experience": 6,
+      "skills": {
+        "Labor Law": 0.73,
+        "Leadership": 0.96,
+        "Employee Relations": 0.93,
+        "HRIS": 0.84
+      }
+    },
+    {
+      "id": "Candidate_38",
+      "years_of_experience": 13,
+      "skills": {
+        "Leadership": 0.79,
+        "Recruitment": 0.92,
+        "Labor Law": 0.88,
+        "HRIS": 0.68,
+        "Employee Relations": 0.82,
+        "Communication": 0.78
+      }
+    },
+    {
+      "id": "Candidate_39",
+      "years_of_experience": 7,
+      "skills": {
+        "Recruitment": 0.7,
+        "Communication": 0.83,
+        "Leadership": 0.7
+      }
+    },
+    {
+      "id": "Candidate_40",
+      "years_of_experience": 5,
+      "skills": {
+        "Communication": 0.68,
+        "Labor Law": 0.83,
+        "Employee Relations": 0.76,
+        "Leadership": 0.97
+      }
+    },
+    {
+      "id": "Candidate_41",
+      "years_of_experience": 14,
+      "skills": {
+        "Employee Relations": 0.71,
+        "Leadership": 0.63,
+        "Recruitment": 0.92,
+        "Communication": 0.71
+      }
+    },
+    {
+      "id": "Candidate_42",
+      "years_of_experience": 5,
+      "skills": {
+        "Employee Relations": 0.64,
+        "Recruitment": 0.79,
+        "Labor Law": 0.92
+      }
+    },
+    {
+      "id": "Candidate_43",
+      "years_of_experience": 13,
+      "skills": {
+        "Leadership": 0.88,
+        "Employee Relations": 0.73,
+        "HRIS": 0.79,
+        "Labor Law": 0.68,
+        "Recruitment": 0.78
+      }
+    },
+    {
+      "id": "Candidate_44",
+      "years_of_experience": 12,
+      "skills": {
+        "Labor Law": 0.78,
+        "HRIS": 0.7,
+        "Employee Relations": 0.86
+      }
+    },
+    {
+      "id": "Candidate_45",
+      "years_of_experience": 11,
+      "skills": {
+        "Recruitment": 0.63,
+        "HRIS": 0.92,
+        "Leadership": 0.7,
+        "Communication": 0.73,
+        "Labor Law": 0.86,
+        "Employee Relations": 0.65
+      }
+    },
+    {
+      "id": "Candidate_46",
+      "years_of_experience": 5,
+      "skills": {
+        "HRIS": 0.8,
+        "Recruitment": 0.71,
+        "Leadership": 0.82,
+        "Labor Law": 0.72,
+        "Employee Relations": 0.93
+      }
+    },
+    {
+      "id": "Candidate_47",
+      "years_of_experience": 10,
+      "skills": {
+        "Employee Relations": 0.87,
+        "Communication": 0.87,
+        "HRIS": 0.81,
+        "Leadership": 0.96
+      }
+    },
+    {
+      "id": "Candidate_48",
+      "years_of_experience": 5,
+      "skills": {
+        "Employee Relations": 0.64,
+        "Labor Law": 0.92,
+        "HRIS": 0.68,
+        "Leadership": 0.65,
+        "Recruitment": 0.82
+      }
+    },
+    {
+      "id": "Candidate_49",
+      "years_of_experience": 12,
+      "skills": {
+        "Labor Law": 0.68,
+        "HRIS": 0.61,
+        "Employee Relations": 0.69,
+        "Communication": 0.77,
+        "Leadership": 0.85,
+        "Recruitment": 0.89
+      }
+    },
+    {
+      "id": "Candidate_50",
+      "years_of_experience": 10,
+      "skills": {
+        "Leadership": 0.93,
+        "Employee Relations": 0.88
+      }
+    },
+    {
+      "id": "Candidate_51",
+      "years_of_experience": 3,
+      "skills": {
+        "Employee Relations": 0.76,
+        "HRIS": 0.77,
+        "Labor Law": 0.84,
+        "Recruitment": 0.69,
+        "Leadership": 0.71,
+        "Communication": 0.76
+      }
+    },
+    {
+      "id": "Candidate_52",
+      "years_of_experience": 13,
+      "skills": {
+        "Labor Law": 0.91,
+        "HRIS": 0.87
+      }
+    },
+    {
+      "id": "Candidate_53",
+      "years_of_experience": 6,
+      "skills": {
+        "Employee Relations": 0.76,
+        "HRIS": 0.67,
+        "Recruitment": 0.75,
+        "Communication": 0.91,
+        "Labor Law": 0.72,
+        "Leadership": 0.66
+      }
+    },
+    {
+      "id": "Candidate_54",
+      "years_of_experience": 12,
+      "skills": {
+        "Labor Law": 0.64,
+        "Leadership": 0.89,
+        "HRIS": 0.71,
+        "Communication": 0.62,
+        "Employee Relations": 0.73
+      }
+    },
+    {
+      "id": "Candidate_55",
+      "years_of_experience": 15,
+      "skills": {
+        "Communication": 0.72,
+        "Recruitment": 0.75
+      }
+    },
+    {
+      "id": "Candidate_56",
+      "years_of_experience": 13,
+      "skills": {
+        "Labor Law": 0.68,
+        "Communication": 0.74,
+        "HRIS": 0.69
+      }
+    },
+    {
+      "id": "Candidate_57",
+      "years_of_experience": 11,
+      "skills": {
+        "HRIS": 0.74,
+        "Employee Relations": 0.93,
+        "Recruitment": 0.96,
+        "Communication": 0.95,
+        "Labor Law": 0.91
+      }
+    },
+    {
+      "id": "Candidate_58",
+      "years_of_experience": 15,
+      "skills": {
+        "Recruitment": 0.94,
+        "Communication": 0.98,
+        "HRIS": 0.71,
+        "Labor Law": 0.62,
+        "Employee Relations": 0.62,
+        "Leadership": 0.85
+      }
+    },
+    {
+      "id": "Candidate_59",
+      "years_of_experience": 7,
+      "skills": {
+        "Recruitment": 0.6,
+        "Communication": 0.87,
+        "HRIS": 0.92,
+        "Employee Relations": 0.67,
+        "Labor Law": 0.82,
+        "Leadership": 0.62
+      }
+    },
+    {
+      "id": "Candidate_60",
+      "years_of_experience": 6,
+      "skills": {
+        "Recruitment": 0.9,
+        "Communication": 0.84,
+        "Employee Relations": 0.82,
+        "Leadership": 0.72,
+        "HRIS": 0.69
+      }
+    },
+    {
+      "id": "Candidate_61",
+      "years_of_experience": 2,
+      "skills": {
+        "Employee Relations": 0.78,
+        "HRIS": 0.8,
+        "Recruitment": 0.71,
+        "Communication": 0.96,
+        "Leadership": 0.76
+      }
+    },
+    {
+      "id": "Candidate_62",
+      "years_of_experience": 10,
+      "skills": {
+        "Employee Relations": 0.96,
+        "Labor Law": 0.89,
+        "Recruitment": 0.91,
+        "Communication": 0.71,
+        "HRIS": 0.64
+      }
+    },
+    {
+      "id": "Candidate_63",
+      "years_of_experience": 6,
+      "skills": {
+        "Labor Law": 0.97,
+        "Employee Relations": 0.77,
+        "HRIS": 0.67,
+        "Recruitment": 0.76,
+        "Communication": 0.61
+      }
+    },
+    {
+      "id": "Candidate_64",
+      "years_of_experience": 14,
+      "skills": {
+        "Employee Relations": 0.87,
+        "Communication": 0.95
+      }
+    },
+    {
+      "id": "Candidate_65",
+      "years_of_experience": 9,
+      "skills": {
+        "Leadership": 0.7,
+        "HRIS": 0.74,
+        "Labor Law": 0.79,
+        "Employee Relations": 0.79,
+        "Recruitment": 0.75
+      }
+    },
+    {
+      "id": "Candidate_66",
+      "years_of_experience": 2,
+      "skills": {
+        "Labor Law": 0.7,
+        "Recruitment": 0.9
+      }
+    },
+    {
+      "id": "Candidate_67",
+      "years_of_experience": 8,
+      "skills": {
+        "Recruitment": 0.86,
+        "Employee Relations": 0.74,
+        "Communication": 0.66,
+        "HRIS": 0.95,
+        "Leadership": 0.97
+      }
+    },
+    {
+      "id": "Candidate_68",
+      "years_of_experience": 7,
+      "skills": {
+        "Labor Law": 0.74,
+        "Communication": 0.72,
+        "Recruitment": 0.92
+      }
+    },
+    {
+      "id": "Candidate_69",
+      "years_of_experience": 12,
+      "skills": {
+        "Labor Law": 0.9,
+        "Employee Relations": 0.93,
+        "Recruitment": 0.91,
+        "Communication": 0.77,
+        "HRIS": 0.95,
+        "Leadership": 0.73
+      }
+    },
+    {
+      "id": "Candidate_70",
+      "years_of_experience": 11,
+      "skills": {
+        "Leadership": 0.65,
+        "Recruitment": 0.73,
+        "HRIS": 0.62,
+        "Communication": 0.68,
+        "Labor Law": 0.96,
+        "Employee Relations": 0.67
+      }
+    },
+    {
+      "id": "Candidate_71",
+      "years_of_experience": 15,
+      "skills": {
+        "Labor Law": 0.7,
+        "Leadership": 0.91,
+        "Employee Relations": 0.67,
+        "Communication": 0.85,
+        "Recruitment": 0.94,
+        "HRIS": 0.74
+      }
+    },
+    {
+      "id": "Candidate_72",
+      "years_of_experience": 10,
+      "skills": {
+        "Communication": 0.64,
+        "Labor Law": 0.73,
+        "Employee Relations": 0.61,
+        "HRIS": 0.96
+      }
+    },
+    {
+      "id": "Candidate_73",
+      "years_of_experience": 8,
+      "skills": {
+        "Leadership": 0.84,
+        "Labor Law": 0.77
+      }
+    },
+    {
+      "id": "Candidate_74",
+      "years_of_experience": 15,
+      "skills": {
+        "Recruitment": 0.94,
+        "HRIS": 0.71,
+        "Communication": 0.98,
+        "Labor Law": 0.77,
+        "Leadership": 0.81,
+        "Employee Relations": 0.96
+      }
+    },
+    {
+      "id": "Candidate_75",
+      "years_of_experience": 3,
+      "skills": {
+        "Recruitment": 0.96,
+        "Communication": 0.66,
+        "Labor Law": 0.7,
+        "Leadership": 0.65,
+        "Employee Relations": 0.91,
+        "HRIS": 0.71
+      }
+    },
+    {
+      "id": "Candidate_76",
+      "years_of_experience": 5,
+      "skills": {
+        "Employee Relations": 0.75,
+        "Recruitment": 0.81
+      }
+    },
+    {
+      "id": "Candidate_77",
+      "years_of_experience": 2,
+      "skills": {
+        "HRIS": 0.62,
+        "Employee Relations": 0.63,
+        "Communication": 0.7,
+        "Recruitment": 0.79,
+        "Labor Law": 0.91,
+        "Leadership": 0.94
+      }
+    },
+    {
+      "id": "Candidate_78",
+      "years_of_experience": 10,
+      "skills": {
+        "Recruitment": 0.82,
+        "Leadership": 0.78,
+        "Communication": 0.88,
+        "HRIS": 0.92,
+        "Labor Law": 0.93
+      }
+    },
+    {
+      "id": "Candidate_79",
+      "years_of_experience": 14,
+      "skills": {
+        "Recruitment": 0.88,
+        "Employee Relations": 0.92,
+        "HRIS": 0.73,
+        "Leadership": 0.87,
+        "Communication": 0.68
+      }
+    },
+    {
+      "id": "Candidate_80",
+      "years_of_experience": 1,
+      "skills": {
+        "HRIS": 0.67,
+        "Employee Relations": 0.84,
+        "Labor Law": 0.9,
+        "Communication": 0.82,
+        "Recruitment": 0.98,
+        "Leadership": 0.73
+      }
+    },
+    {
+      "id": "Candidate_81",
+      "years_of_experience": 3,
+      "skills": {
+        "Communication": 0.95,
+        "Employee Relations": 0.67,
+        "Leadership": 0.97,
+        "HRIS": 0.77
+      }
+    },
+    {
+      "id": "Candidate_82",
+      "years_of_experience": 11,
+      "skills": {
+        "Employee Relations": 0.72,
+        "Labor Law": 0.97,
+        "Communication": 0.66,
+        "HRIS": 0.63
+      }
+    },
+    {
+      "id": "Candidate_83",
+      "years_of_experience": 15,
+      "skills": {
+        "Communication": 0.78,
+        "Recruitment": 0.93
+      }
+    },
+    {
+      "id": "Candidate_84",
+      "years_of_experience": 2,
+      "skills": {
+        "Employee Relations": 0.8,
+        "HRIS": 0.81
+      }
+    },
+    {
+      "id": "Candidate_85",
+      "years_of_experience": 6,
+      "skills": {
+        "Leadership": 0.95,
+        "Employee Relations": 0.82,
+        "Communication": 0.67,
+        "HRIS": 0.89,
+        "Recruitment": 0.75
+      }
+    },
+    {
+      "id": "Candidate_86",
+      "years_of_experience": 8,
+      "skills": {
+        "Leadership": 0.77,
+        "HRIS": 0.74
+      }
+    },
+    {
+      "id": "Candidate_87",
+      "years_of_experience": 14,
+      "skills": {
+        "Communication": 0.72,
+        "Recruitment": 0.98
+      }
+    },
+    {
+      "id": "Candidate_88",
+      "years_of_experience": 2,
+      "skills": {
+        "Employee Relations": 0.66,
+        "Leadership": 0.93,
+        "Labor Law": 0.82
+      }
+    },
+    {
+      "id": "Candidate_89",
+      "years_of_experience": 11,
+      "skills": {
+        "Labor Law": 0.85,
+        "HRIS": 0.87,
+        "Recruitment": 0.93,
+        "Employee Relations": 0.75,
+        "Communication": 0.61,
+        "Leadership": 0.69
+      }
+    },
+    {
+      "id": "Candidate_90",
+      "years_of_experience": 9,
+      "skills": {
+        "Recruitment": 0.68,
+        "Employee Relations": 0.88,
+        "Leadership": 0.81
+      }
+    },
+    {
+      "id": "Candidate_91",
+      "years_of_experience": 8,
+      "skills": {
+        "Employee Relations": 0.78,
+        "HRIS": 0.75
+      }
+    },
+    {
+      "id": "Candidate_92",
+      "years_of_experience": 3,
+      "skills": {
+        "Recruitment": 0.69,
+        "Leadership": 0.98,
+        "Labor Law": 0.63,
+        "HRIS": 0.63,
+        "Communication": 0.75,
+        "Employee Relations": 0.79
+      }
+    },
+    {
+      "id": "Candidate_93",
+      "years_of_experience": 5,
+      "skills": {
+        "Labor Law": 0.85,
+        "Employee Relations": 0.91
+      }
+    },
+    {
+      "id": "Candidate_94",
+      "years_of_experience": 6,
+      "skills": {
+        "Leadership": 0.71,
+        "Employee Relations": 0.68,
+        "HRIS": 0.64,
+        "Labor Law": 0.78,
+        "Recruitment": 0.8,
+        "Communication": 0.97
+      }
+    },
+    {
+      "id": "Candidate_95",
+      "years_of_experience": 2,
+      "skills": {
+        "Leadership": 0.71,
+        "HRIS": 0.93
+      }
+    },
+    {
+      "id": "Candidate_96",
+      "years_of_experience": 13,
+      "skills": {
+        "Leadership": 0.91,
+        "Labor Law": 0.93,
+        "HRIS": 0.65,
+        "Recruitment": 0.94,
+        "Communication": 0.86
+      }
+    },
+    {
+      "id": "Candidate_97",
+      "years_of_experience": 14,
+      "skills": {
+        "Employee Relations": 0.89,
+        "Leadership": 0.65,
+        "Recruitment": 0.7,
+        "HRIS": 0.74
+      }
+    },
+    {
+      "id": "Candidate_98",
+      "years_of_experience": 9,
+      "skills": {
+        "Leadership": 0.73,
+        "Recruitment": 0.74,
+        "Labor Law": 0.8
+      }
+    },
+    {
+      "id": "Candidate_99",
+      "years_of_experience": 5,
+      "skills": {
+        "Recruitment": 0.8,
+        "HRIS": 0.84,
+        "Employee Relations": 0.96
+      }
+    },
+    {
+      "id": "Candidate_100",
+      "years_of_experience": 10,
+      "skills": {
+        "Recruitment": 0.75,
+        "Communication": 0.62,
+        "HRIS": 0.63,
+        "Labor Law": 0.94,
+        "Employee Relations": 0.92,
+        "Leadership": 0.91
+      }
+    }
+  ]
+}
