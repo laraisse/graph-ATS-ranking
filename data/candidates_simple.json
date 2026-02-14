@@ -1,53 +1,38 @@
+
 {
-  "Alice": {
-    "Python": 0.92,
-    "SQL": 0.70,
-    "Machine Learning": 0.88,
-    "Software Engineering": 0.60,
-    "Communication": 0.75
-  },
-  "Bob": {
-    "Python": 0.60,
-    "SQL": 0.95,
-    "Machine Learning": 0.65,
-    "Software Engineering": 0.80,
-    "Leadership": 0.70
-  },
-  "Charlie": {
-    "Python": 0.98,
-    "Machine Learning": 0.95,
-    "Communication": 0.40
-  },
-  "Diana": {
-    "Python": 0.75,
-    "SQL": 0.72,
-    "Machine Learning": 0.70,
-    "Software Engineering": 0.78,
-    "Communication": 0.82,
-    "Leadership": 0.65
-  },
-  "Ethan": {
-    "SQL": 0.88,
-    "Software Engineering": 0.85,
-    "Communication": 0.90
-  },
-  "Fatima": {
-    "Python": 0.85,
-    "SQL": 0.82,
-    "Machine Learning": 0.83,
-    "Software Engineering": 0.80,
-    "Communication": 0.78,
-    "Leadership": 0.72
-  },
-  "George": {
-    "Python": 0.55,
-    "Machine Learning": 0.60,
-    "Leadership": 0.90
-  },
-  "Hana": {
-    "Python": 0.88,
-    "SQL": 0.86,
-    "Machine Learning": 0.90,
-    "Communication": 0.80
-  }
+   "candidates": [
+    {
+      "id": "X",
+      "years_of_experience": 6,
+      "skills": {
+        "Python": 1,
+        "System Design": 0.8
+      }
+    },
+    {
+      "id": "Y",
+      "years_of_experience": 6,
+      "skills": {
+        "Python": 0.7,
+        "System Design": 0.6,
+        "SQL": 0.5,
+        "Docker": 0.2
+      }
+    },
+     {
+       "id": "Z",
+       "years_of_experience": 6,
+       "skills": {
+         "Python": 0.7
+       }
+     },
+     {
+       "id": "W",
+       "years_of_experience": 6,
+       "skills": {
+         "Python": 0.4
+       }
+     }
+  ]
 }
+

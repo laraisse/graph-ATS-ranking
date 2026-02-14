@@ -1489,12 +1489,12 @@
       "primary_role": "HR Manager",
       "years_of_experience": 8,
       "skills": {
-        "Leadership": 0.9,
-        "Communication": 0.85,
-        "Employee Relations": 0.86,
-        "Labor Law": 0.98,
-        "HRIS": 0.83,
-        "Recruitment": 0.81,
+        "Leadership": 1,
+        "Communication": 1,
+        "Employee Relations": 1,
+        "Labor Law": 1,
+        "HRIS": 1,
+        "Recruitment": 1,
         "Machine Learning": 0.52,
         "Code Review": 0.52
       }

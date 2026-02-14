@@ -97,7 +97,7 @@ class GraphBasedATSRanker:
             # Overqualified (slight diminishing return)
             excess = min(candidate_years - preferred_years, preferred_years * 2)
             max_excess = preferred_years * 2
-            return 1.0 - 0.2 * (excess / max_excess)
+            return 1 - 0.2 * (excess / max_excess)
 
     def build_graph(
             self,
@@ -181,11 +181,11 @@ class GraphBasedATSRanker:
 
             # Add direct job→candidate edge based on experience match
             if self.experience_mode in ['direct', 'both']:
-                experience_match = self._calculate_experience_boost(
+                experience_match = self._calculate_experience_match_score(
                     years, required_years, preferred_years
                 )
                 # Scale by experience weight
-                edge_weight = experience_match * self.experience_weight
+                edge_weight = (experience_match * self.experience_weight)/len(candidates)
                 if edge_weight > 0:
                     G.add_edge(self.job_node, cand_node,
                                weight=edge_weight,
@@ -194,10 +194,10 @@ class GraphBasedATSRanker:
         # Add direct experience edge to perfect candidate
         if self.experience_mode in ['direct', 'both']:
             perfect_years = preferred_years if preferred_years else required_years
-            perfect_exp_match = self._calculate_experience_boost(
+            perfect_exp_match = self._calculate_experience_match_score(
                 perfect_years, required_years, preferred_years
             )
-            edge_weight = perfect_exp_match * self.experience_weight
+            edge_weight = (perfect_exp_match * self.experience_weight)/len(candidates)
             if edge_weight > 0:
                 G.add_edge(self.job_node, self.perfect_candidate_node,
                            weight=edge_weight,
