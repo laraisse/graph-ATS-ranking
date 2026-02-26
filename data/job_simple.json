@@ -1,11 +1,12 @@
 {
     "title": "Backend Engineer",
-    "min_years_experience": 5,
-    "preferred_years_experience": 7,
+    "min_years_experience": 3,
+    "preferred_years_experience": 5,
     "skills": {
-      "Python": 1.0,
-      "System Design": 0.8,
-      "SQL": 0.6,
-      "Docker": 0.4
+      "Python": 1,
+      "GIT": 0.8,
+      "SQL": 0.5,
+      "Docker": 0.2,
+      "C++": 0.1
     }
 }

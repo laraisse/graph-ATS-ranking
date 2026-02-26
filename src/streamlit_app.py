@@ -17,6 +17,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, 
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib import colors
+from reportlab.platypus import Image
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 from datetime import datetime
 
@@ -45,7 +46,7 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     .candidate-card {
-        background-color: #1e1e1e;
+        background-color: #faf8f7;
         padding: 1.5rem;
         border-radius: 0.5rem;
         border: 1px solid #e0e0e0;
@@ -381,6 +382,12 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
         story.append(metrics_table)
         story.append(Spacer(1, 0.15 * inch))
 
+        #chart = create_skill_coverage_chart(explanation, job_skills)
+        #chart.write_image("chart.png")
+        #img = Image("chart.png", width=250, height=200)
+        #story.append(img)
+
+
         # Calculate useful metrics for recommendation
         avg_prof = sum(s['proficiency'] for s in explanation['top_skills']) / len(explanation['top_skills']) if \
         explanation['top_skills'] else 0
@@ -429,16 +436,18 @@ def generate_hr_pdf_report(top_rankings, ranker, job_skills, job_requirements, t
 
             for skill in explanation['top_skills']:  # Top 6 skills
                 proficiency_pct = f"{skill['proficiency']*100 :.0f}%"
-                importance_pct = f"{skill['importance'] * 100:.0f}%"
+                importance_pct = f"{skill['importance'] *100:.0f}%"
 
                 # Match quality indicator
-                match_score = skill['proficiency'] * skill['importance']
-                if match_score >= 0.7:
-                    match_quality = "Excellent ⭐"
-                elif match_score >= 0.5:
+                match_score = skill['proficiency']
+                if match_score >= 0.85:
+                    match_quality = "Excellent "
+                elif match_score >= 0.65:
                     match_quality = "Good ✓"
-                else:
+                elif match_score >= 0.5:
                     match_quality = "Fair"
+                else :
+                    match_quality = "bad"
 
                 skills_data.append([
                     skill['skill'],
@@ -1114,6 +1123,7 @@ def main():
 
             if skills_to_display:
                 skills_df = pd.DataFrame(skills_to_display)
+                skills_df['importance'] = skills_df['importance'].apply(lambda x: f"{x*100:.2f}%")
                 skills_df['proficiency'] = skills_df['proficiency'].apply(lambda x: f"{x*100:.2f}%")
                 st.dataframe(skills_df, use_container_width=True, hide_index=True)
             else:
@@ -1123,7 +1133,7 @@ def main():
             if explanation['missing_skills']:
                 st.warning("⚠️ Missing Skills:")
                 missing_df = pd.DataFrame(explanation['missing_skills'])
-                missing_df['importance'] = missing_df['importance'].apply(lambda x: f"{x:.2f}")
+                missing_df['importance'] = missing_df['importance'].apply(lambda x: f"{x * 100:.2f}%")
                 st.dataframe(missing_df, use_container_width=True, hide_index=True)
             else:
                 st.success("✅ Complete profile - No missing skills!")

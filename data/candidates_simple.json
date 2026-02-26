@@ -2,35 +2,43 @@
 {
    "candidates": [
     {
-      "id": "X",
-      "years_of_experience": 6,
+      "id": "Y",
+      "years_of_experience": 4,
       "skills": {
-        "Python": 1,
-        "System Design": 0.8
+        "Python": 0.1,
+        "SQL": 0.8,
+        "GIT": 0.3
       }
     },
     {
-      "id": "Y",
-      "years_of_experience": 6,
+      "id": "X",
+      "years_of_experience": 4,
       "skills": {
-        "Python": 0.7,
-        "System Design": 0.6,
-        "SQL": 0.5,
-        "Docker": 0.2
+        "Python": 0.1,
+        "GIT": 0.7,
+        "SQL": 0.7,
+        "Docker": 0.7
       }
     },
      {
        "id": "Z",
-       "years_of_experience": 6,
+       "years_of_experience": 5,
        "skills": {
-         "Python": 0.7
+         "Python": 1,
+        "GIT": 0.5,
+        "SQL": 0.3,
+        "Docker": 0.2,
+        "C++": 0.1
        }
      },
      {
        "id": "W",
-       "years_of_experience": 6,
+       "years_of_experience": 5,
        "skills": {
-         "Python": 0.4
+         "Python": 0.9,
+        "GIT": 0.9,
+        "SQL": 0.4,
+        "Docker": 0.2
        }
      }
   ]
